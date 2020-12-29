@@ -1,0 +1,16 @@
+.logo{
+    width: 400rpx;
+    display: block;
+    margin: 200rpx  auto ;
+}
+.login{
+    width: 100rpx;
+    line-height: 40rpx;
+    text-align: center;
+    border-radius: 40rpx;
+    display: block;
+    margin: 0 auto;
+    background-color: #f90000;
+    color: #fff;
+    font-size: 26rpx;
+}

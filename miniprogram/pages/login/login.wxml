@@ -1,0 +1,4 @@
+<div>
+    <image class="logo" src="../../images/logo.png" mode="aspectFit"  />
+    <button open-type="getPhoneNumber"   class="login" bindgetphonenumber="getPhoneNumber" >点击登录</button>
+</div>
