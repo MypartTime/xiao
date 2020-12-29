@@ -16,6 +16,14 @@ App({
 
     this.globalData = {}
   },
+
+  baseUrl:'https://openapi.keruyun.com',//正式环境
+  // baseUrl:'https://gldopenapi.keruyun.com',//测试环境
+  appKey:"765f3ea41cb8aaf49956105fb1297177",
+  shopIdenty:"810094162",
+  version:"1.0",
+
+
   async getSign(){//获取签名
     return await wx.cloud.callFunction({
       name:"sign",
@@ -27,12 +35,7 @@ App({
       }
     })
   },
-  getPublicKeys(){
-    return `?appKey=${this.appKey}&shopIdenty=${this.shopIdenty}&version=${this.version}&timestamp=${(new Date()).valueOf()}`
+  getPublicKeys(){//获取公共参数
+    return `?appKey=${this.appKey}&shopIdenty=${this.shopIdenty}&version=${this.version}&timestamp=${Date.parse(new Date())}`
   },
-  baseUrl:'https://openapi.keruyun.com',//正式环境
-  // baseUrl:'https://gldopenapi.keruyun.com',//测试环境
-  appKey:"765f3ea41cb8aaf49956105fb1297177",
-  shopIdenty:"810094162",
-  version:"1.0",
 })
