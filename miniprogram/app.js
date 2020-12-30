@@ -20,22 +20,24 @@ App({
   baseUrl:'https://openapi.keruyun.com',//正式环境
   // baseUrl:'https://gldopenapi.keruyun.com',//测试环境
   appKey:"765f3ea41cb8aaf49956105fb1297177",
-  shopIdenty:"810094162",
+  shopIdenty:"810983262",
   version:"1.0",
+  token:"356f5be13d589e1f3ac5621b5f57f4c8",
 
 
   async getSign(){//获取签名
+    const that = this
     return await wx.cloud.callFunction({
       name:"sign",
       data:{
-        appKey:"765f3ea41cb8aaf49956105fb1297177",
-        shopIdenty:"810094162",
-        version:"1.0",
-        token:"f7edd59138de401fcf11db116a21a1b6",
+        appKey:that.appKey,
+        shopIdenty:that.shopIdenty,
+        version:that.version,
+        token:that.token,
       }
     })
   },
   getPublicKeys(){//获取公共参数
-    return `?appKey=${this.appKey}&shopIdenty=${this.shopIdenty}&version=${this.version}&timestamp=${Date.parse(new Date())}`
+    return `?appKey=${this.appKey}&shopIdenty=${this.shopIdenty}&version=${this.version}&timestamp=${Math.floor(Date.parse(new Date())/10000)*10000}`
   },
 })

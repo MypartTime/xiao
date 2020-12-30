@@ -5,6 +5,8 @@ Page({
   data: {
 
   },
+  onLoad(){
+  },
   handlePayment() {
     let data = {
       body: "test",
