@@ -1,5 +1,5 @@
 <div>
-    <image class="logo" src="../../images/logo.png" mode="aspectFit"  />
+    <!-- <image class="logo" src="../../images/logo.png" mode="aspectFit"  /> -->
     <button open-type="getUserInfo"  wx:if="{{active == 1}}" class="login" bindgetuserinfo="getUserInfo" >授权登录</button>
     <button open-type="getPhoneNumber"  wx:if="{{active == 2}}"  class="login" bindgetphonenumber="getPhoneNumber" >获取号码</button>
 </div>

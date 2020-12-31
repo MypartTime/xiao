@@ -28,6 +28,7 @@ Page({
         mobile: res.result.weRunData.data.phoneNumber
       }, () => {
         that.login(res.result.weRunData.data.phoneNumber)
+        // that.login('18875153038')
       })
 
     })
@@ -46,8 +47,9 @@ Page({
   login(mobile) { //登录
     const that = this
     app.getSign().then(res => {
+      console.log(res)
       wx.request({
-        url: app.baseUrl + '/open/v1/crm/login' + app.getPublicKeys() + `&sign=${res.result}`,
+        url: app.baseUrl + '/open/v1/crm/login' + app.getPublicKeys(res.result.timestamp) + `&sign=${res.result.sign}`,
         header: {
           "Content-Type": "application/json"
         },
@@ -66,6 +68,7 @@ Page({
             wx.setStorageSync('customerId', result.data.result.customerId)
             wx.setStorageSync('customerMainId', result.data.result.customerMainId)
             wx.setStorageSync('memberId', result.data.result.memberId)
+            that.addCustomer()
           } else if (result.data.code == 2000) {
             that.addCustomer()
           }else{
@@ -84,13 +87,17 @@ Page({
     const that = this
     app.getSign().then(result => {
       wx.request({
-        url: app.baseUrl + '/open/v1/crm/createCustomer' + app.getPublicKeys() + `&sign=${result.result}`,
+        url: app.baseUrl + '/open/v1/crm/createCustomer' + app.getPublicKeys(result.result.timestamp) + `&sign=${result.result.sign}`,
         header: {
           "Content-Type": "application/json"
         },
         method: "POST",
         data: {
+          attentionWxTime: Date.parse(new Date()),
           birthday: Date.parse(new Date()),
+          consumePwd:"123456",
+          customerId:"0",
+          customerMainId:"0",
           loginId: wx.getStorageSync('mobile'),
           loginType: '0',
           name: that.data.name,

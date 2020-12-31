@@ -6,6 +6,7 @@ Page({
 
   },
   onLoad(){
+    this.getDishList()
   },
   handlePayment() {
     let data = {
@@ -27,6 +28,11 @@ Page({
           console.error('pay fail', res)
         }
       })
+    })
+  },
+  getDishList(){
+    app.getSign().then(res => {
+      console.log(res);
     })
   }
 })
