@@ -27,8 +27,8 @@ Page({
       that.setData({
         mobile: res.result.weRunData.data.phoneNumber
       }, () => {
-        that.login(res.result.weRunData.data.phoneNumber)
-        // that.login('18875153038')
+        // that.login(res.result.weRunData.data.phoneNumber)
+        that.login('18875153030')
       })
 
     })
@@ -97,7 +97,8 @@ Page({
           consumePwd:"123456",
           customerId:"0",
           customerMainId:"0",
-          loginId: wx.getStorageSync('mobile'),
+          // loginId: wx.getStorageSync('mobile'),
+          loginId: '18875153030',
           loginType: '0',
           name: that.data.name,
           sex: that.data.sex,

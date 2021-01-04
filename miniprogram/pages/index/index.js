@@ -3,7 +3,8 @@ const app = getApp()
 
 Page({
   data: {
-
+    dishList:[],
+    startId:''
   },
   onLoad(){
     this.getDishList()
@@ -30,19 +31,45 @@ Page({
       })
     })
   },
+  onReachBottom(){
+    if(this.data.startId){
+      this.getDishList()
+    }
+  },
   getDishList(){
+    wx.showLoading({title:"加载中"})
+    const that = this
     app.getSign().then(res => {
       wx.request({
         url: app.baseUrl + '/open/v1/cater/dish/dishMenu' + app.getPublicKeys(res.result.timestamp) + `&sign=${res.result.sign}`,
         method:"POST",
         data:{
           shopIdenty:"810983262",
-          pageNum:"10"
+          pageNum:"10",
+          startId:that.data.startId
         },
         success(result){
+          wx.hideLoading()
           console.log(result)
+
+          if(result.data.code == 0){
+            let list = that.data.dishList
+            if(that.data.startId){
+              list.push(...result.data.result.dishTOList)
+              that.setData({
+                dishList:list,
+                startId:result.data.result.startId
+              })
+            }else{
+              that.setData({
+                dishList:result.data.result.dishTOList,
+                startId:result.data.result.startId
+              })
+            }
+          }
         }
       })
     })
-  }
+  },
+  
 })
