@@ -32,7 +32,17 @@ Page({
   },
   getDishList(){
     app.getSign().then(res => {
-      console.log(res);
+      wx.request({
+        url: app.baseUrl + '/open/v1/cater/dish/dishMenu' + app.getPublicKeys(res.result.timestamp) + `&sign=${res.result.sign}`,
+        method:"POST",
+        data:{
+          shopIdenty:"810983262",
+          pageNum:"10"
+        },
+        success(result){
+          console.log(result)
+        }
+      })
     })
   }
 })

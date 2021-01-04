@@ -19,11 +19,10 @@ App({
 
   baseUrl:'https://openapi.keruyun.com',//正式环境
   // baseUrl:'https://gldopenapi.keruyun.com',//测试环境
-  appKey:"765f3ea41cb8aaf49956105fb1297177",
-  shopIdenty:"810983262",
-  version:"1.0",
-  token:"356f5be13d589e1f3ac5621b5f57f4c8",
-
+  appKey:"765f3ea41cb8aaf49956105fb1297177",//appKey
+  shopIdenty:"810983262",//门店id
+  version:"1.0",//版本号
+  token:"356f5be13d589e1f3ac5621b5f57f4c8",//token
 
   async getSign(){//获取签名
     const that = this
@@ -40,4 +39,5 @@ App({
   getPublicKeys(timerstap){//获取公共参数
     return `?appKey=${this.appKey}&shopIdenty=${this.shopIdenty}&version=${this.version}&timestamp=${timerstap}`
   },
+
 })

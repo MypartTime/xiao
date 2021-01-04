@@ -68,7 +68,6 @@ Page({
             wx.setStorageSync('customerId', result.data.result.customerId)
             wx.setStorageSync('customerMainId', result.data.result.customerMainId)
             wx.setStorageSync('memberId', result.data.result.memberId)
-            that.addCustomer()
           } else if (result.data.code == 2000) {
             that.addCustomer()
           }else{
@@ -87,7 +86,7 @@ Page({
     const that = this
     app.getSign().then(result => {
       wx.request({
-        url: app.baseUrl + '/open/v1/crm/createCustomer' + app.getPublicKeys(result.result.timestamp) + `&sign=${result.result.sign}`,
+        url: app.baseUrl + '/open/v1/crm/createOrUpgradeMember' + app.getPublicKeys(result.result.timestamp) + `&sign=${result.result.sign}`,
         header: {
           "Content-Type": "application/json"
         },

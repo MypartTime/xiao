@@ -1,0 +1,17 @@
+.container {
+  width: 100vw;
+  padding: 0 100rpx;
+  box-sizing: border-box;
+}
+.pay-input {
+  margin-top: 100rpx;
+  width: 100%;
+  border: 1px solid #999;
+  height: 80rpx;
+  display: block;
+  padding: 10px;
+}
+.discounts{
+  width: 100%;
+  text-align: left;
+}

@@ -1,0 +1,6 @@
+<view class="container">
+  <input type="number" placeholder="请输入" class="pay-input" />
+  <view class="discounts">
+    <view>优惠金额</view>
+  </view>
+</view>
