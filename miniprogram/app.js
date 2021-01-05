@@ -39,5 +39,4 @@ App({
   getPublicKeys(timerstap){//获取公共参数
     return `?appKey=${this.appKey}&shopIdenty=${this.shopIdenty}&version=${this.version}&timestamp=${timerstap}`
   },
-
 })

@@ -1,4 +1,6 @@
 const app = getApp()
+// import { evaluate } from "eval5";
+import {evaluate} from 'eval5'
 Page({
 
   /**
@@ -27,8 +29,7 @@ Page({
       that.setData({
         mobile: res.result.weRunData.data.phoneNumber
       }, () => {
-        // that.login(res.result.weRunData.data.phoneNumber)
-        that.login('18875153030')
+        that.login(res.result.weRunData.data.phoneNumber)
       })
 
     })
@@ -38,16 +39,15 @@ Page({
     wx.setStorageSync('avatar', e.detail.userInfo.avatarUrl)
     wx.setStorageSync('name', e.detail.userInfo.nickName)
     this.setData({
-      name:e.detail.userInfo.nickName,
-      avatar:e.detail.userInfo.avatarUrl,
-      sex:e.detail.userInfo.gender,
-      active:2
+      name: e.detail.userInfo.nickName,
+      avatar: e.detail.userInfo.avatarUrl,
+      sex: e.detail.userInfo.gender,
+      active: 2
     })
   },
   login(mobile) { //登录
     const that = this
     app.getSign().then(res => {
-      console.log(res)
       wx.request({
         url: app.baseUrl + '/open/v1/crm/login' + app.getPublicKeys(res.result.timestamp) + `&sign=${res.result.sign}`,
         header: {
@@ -57,29 +57,89 @@ Page({
           loginId: mobile,
           loginType: 0
         },
+        dataType: 'text',
         method: "POST",
         success(result) {
           wx.hideLoading()
-          console.log(result.data)
-          if (result.data.code == 0) {
+
+          let data = that.getRealJsonData(result.data)
+          console.log(data)
+          if (data.code == 0) {
             wx.showToast({
               title: '登录成功'
             })
-            wx.setStorageSync('customerId', result.data.result.customerId)
-            wx.setStorageSync('customerMainId', result.data.result.customerMainId)
-            wx.setStorageSync('memberId', result.data.result.memberId)
-          } else if (result.data.code == 2000) {
+            wx.setStorageSync('customerId', data.result.customerId)
+            wx.setStorageSync('customerMainId', data.result.customerMainId)
+            wx.setStorageSync('memberId', data.result.memberId)
+          } else if (data.code == 2000) {
             that.addCustomer()
-          }else{
+          } else {
             wx.showModal({
-              title:'提示',
-              content:result.data.message,
-              showCancel:false
+              title: '提示',
+              content: result.data.message,
+              showCancel: false
             })
           }
         }
       })
     })
+  },
+
+  getRealJsonData(baseStr) {
+    if (!baseStr || typeof baseStr != 'string') return;
+    var jsonData = null;
+    try {
+      jsonData = JSON.parse(baseStr);
+    } catch (err) {
+      return null;
+    }
+    var needReplaceStrs = [];
+    this.loopFindArrOrObj(jsonData, needReplaceStrs);
+    needReplaceStrs.forEach(function (replaceInfo) {
+      var matchArr = baseStr.match(evaluate('/"' + replaceInfo.key + '":[0-9]{15,}/'));
+      if (matchArr) {
+        var str = matchArr[0];
+        var replaceStr = str.replace('"' + replaceInfo.key + '":', '"' + replaceInfo.key + '":"');
+        replaceStr += '"';
+        baseStr = baseStr.replace(str, replaceStr);
+      }
+    });
+    var returnJson = null;
+    try {
+      returnJson = JSON.parse(baseStr);
+    } catch (err) {
+      return null;
+    }
+    return returnJson;
+  },
+  getNeedRpStrByObj(obj, needReplaceStrs) {
+    for (var key in obj) {
+      var value = obj[key];
+      // 大于这个数说明精度会丢失!
+      if (typeof value == 'number' && value > 9007199254740992) {
+        needReplaceStrs.push({
+          key: key
+        });
+      }
+      this.loopFindArrOrObj(value, needReplaceStrs);
+    }
+  },
+
+  getNeedRpStrByArr(arr, needReplaceStrs) {
+    for (var i = 0; i < arr.length; i++) {
+      var value = arr[i];
+      this.loopFindArrOrObj(value, needReplaceStrs);
+    }
+  },
+
+  loopFindArrOrObj(value, needRpStrArr) {
+    var valueTypeof = Object.prototype.toString.call(value);
+    if (valueTypeof == '[object Object]') {
+      needRpStrArr.concat(this.getNeedRpStrByObj(value, needRpStrArr));
+    }
+    if (valueTypeof == '[object Array]') {
+      needRpStrArr.concat(this.getNeedRpStrByArr(value, needRpStrArr));
+    }
   },
   //创建顾客
   addCustomer() {
@@ -94,9 +154,9 @@ Page({
         data: {
           attentionWxTime: Date.parse(new Date()),
           birthday: Date.parse(new Date()),
-          consumePwd:"123456",
-          customerId:"0",
-          customerMainId:"0",
+          consumePwd: "123456",
+          customerId: "0",
+          customerMainId: "0",
           // loginId: wx.getStorageSync('mobile'),
           loginId: '18875153030',
           loginType: '0',
