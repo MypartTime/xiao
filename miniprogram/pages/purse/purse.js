@@ -1,10 +1,9 @@
 const app = getApp()
 Page({
   data: {
-    avatar:wx.getStorageSync('avatar'),
     userInfo:{}
   },
-  onLoad(){
+  onShow(){
     this.getUserInfo()
   },
   getUserInfo(){
@@ -29,22 +28,23 @@ Page({
       })
     })
   },
-  setUserInfo(){
-    app.getSign().then(res => {
-      wx.request({
-        url: app.baseUrl + '/open/v1/crm/updateCustomerInfo' + app.getPublicKeys(res.result.timestamp) + `&sign=${res.result.sign}`,
-        method:"POST",
-        data:{
-          birthday:new Date().getTime(),
-          consumePwd:"123456",
-          customerId:wx.getStorageSync('customerId'),
-          name:"陈冠希",
-          sex:1
-        },
-        success(result){
-          console.log(result)
-        }
-      })
-    })
+  handleRouter(e){
+    let i = e.currentTarget.dataset.i
+    switch (i) {
+      case '1':
+        app.navigator('/pages/recharge/recharge');
+        break;
+      case '2':
+        
+        break;
+      case '3':
+        app.navigator('/pages/recharge/recharge');
+        break;
+      case '4':
+        wx.navigateBack({
+          delta: 1,
+        })
+        break;
+    }
   }
 })

@@ -1,0 +1,26 @@
+<view class="card">
+  <view class="card_store">
+    <text>肖安华卤坊</text>
+    <text>会员储值卡</text>
+  </view>
+  <view class="card_info">
+    <view class="card_info_item">卡号：{{userInfo.memberId}}</view>
+    <view class="card_info_item">余额：{{userInfo.remainValue}}</view>
+    <view class="card_info_item">电话：{{userInfo.mobile}}</view>
+  </view>
+</view>
+
+<view class="recharge">
+  <view class="recharge_title">会员卡储值</view>
+  <view class="account_list">
+    <view wx:for="{{accountList}}" wx:key="index"  bindtap="selectAccount" data-i="{{item.value}}"
+      class="{{item.value == account?'account_item active':'account_item'}}">{{item.title}}</view>
+  </view>
+  <view class="recharge_input" wx:if="{{userInfo.level}}">
+    <input type="number"  placeholder="可手动输入储值金额" />
+  </view>
+</view>
+
+<view class="recharge_control">
+  <button type="primary" bindtap="handlePayment">充值</button>
+</view>

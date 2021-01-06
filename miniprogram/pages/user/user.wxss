@@ -93,3 +93,11 @@
   top: calc( 50% - 30rpx);
   right: 20rpx;
 }
+.greetings{
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10rpx;
+}

@@ -1,0 +1,26 @@
+<view class="purse-container">
+  <image src="/images/my-purse.png" class="purse_img"></image>
+  <view class="purse_over" wx:if="{{userInfo.level}}">
+    <view class="purse_title">我的余额</view>
+    <view class="money">
+      <text class="account">168</text>
+    </view>
+  </view>
+  <view class="purse_tip" wx:if="{{!userInfo.level}}">
+    <view class="purse_title">暂未成为会员，无法使用钱包功能，请先储值成为会员。</view>
+  </view>
+  <!-- <view class="purse_over">
+    <view class="purse_title">我的积分</view>
+    <view class="money">
+      <text class="account">168</text>
+    </view>
+  </view> -->
+  <view class="controls" wx:if="{{userInfo.level}}">
+    <button data-i="1" bindtap="handleRouter" type="primary">储值</button>
+    <button data-i="2" bindtap="handleRouter" type="default" class="record">消费记录</button>
+  </view>
+  <view class="controls" wx:if="{{!userInfo.level}}">
+    <button data-i="3" bindtap="handleRouter" type="primary">成为会员</button>
+    <button data-i="4" bindtap="handleRouter" type="default" class="record">返回</button>
+  </view>
+</view>

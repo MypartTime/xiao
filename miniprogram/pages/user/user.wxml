@@ -11,22 +11,28 @@
   <view class="user" wx:if="{{mobile}}">
     <image src="{{avatar}}" class="user_avatar"></image>
     <view class="name">{{name}}</view>
-    <image src="/images/vip.png" mode="widthFix" class="vip"></image>
+    <view class="greetings">{{userInfo.level?'尊敬的会员，':'尊敬的顾客，'}}{{time <= 12 ? '早上好' : time <= 18 ? '下午好':'晚上好'}}</view>
+    <image src="/images/vip.png" wx:if="{{userInfo.level}}" mode="widthFix" class="vip"></image>
   </view>
   <view class="navs">
-    <view class="nav_item">
-      <image src="/images/log.png" class="item_img"></image>
-      <text>我的订单</text>
-      <image src="/images/arrow.png" class="arrow"></image>
-    </view>
-    <view class="nav_item">
+    <view class="nav_item" data-i='1' bindtap="handleRouter">
       <image src="/images/message.png" class="item_img"></image>
       <text>我的信息</text>
       <image src="/images/arrow.png" class="arrow"></image>
     </view>
-    <view class="nav_item">
+    <view class="nav_item" data-i='2' bindtap="handleRouter">
+      <image src="/images/perse.png" class="item_img"></image>
+      <text>我的钱包</text>
+      <image src="/images/arrow.png" class="arrow"></image>
+    </view>
+    <view class="nav_item" data-i='3' bindtap="handleRouter">
+      <image src="/images/rmb.png" class="item_img"></image>
+      <text>在线充值</text>
+      <image src="/images/arrow.png" class="arrow"></image>
+    </view>
+    <view class="nav_item" data-i='4' bindtap="handleRouter">
       <image src="/images/setting.png" class="item_img"></image>
-      <text>设置</text>
+      <text>设置支付密码</text>
       <image src="/images/arrow.png" class="arrow"></image>
     </view>
   </view>

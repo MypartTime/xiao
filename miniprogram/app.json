@@ -1,11 +1,14 @@
 {
   "pages": [
     "pages/user/user",
-    "pages/login/login",
+    "pages/recharge/recharge",
+    "pages/purse/purse",
     "pages/userinfo/userinfo",
+    "pages/login/login",
     "pages/pay/pay",
     "pages/order/order",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/record/record"
   ],
   "window": {
     "backgroundColor": "#fff",

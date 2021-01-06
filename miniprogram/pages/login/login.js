@@ -146,7 +146,7 @@ Page({
     const that = this
     app.getSign().then(result => {
       wx.request({
-        url: app.baseUrl + '/open/v1/crm/createOrUpgradeMember' + app.getPublicKeys(result.result.timestamp) + `&sign=${result.result.sign}`,
+        url: app.baseUrl + '/open/v1/crm/createCustomer' + app.getPublicKeys(result.result.timestamp) + `&sign=${result.result.sign}`,
         header: {
           "Content-Type": "application/json"
         },
@@ -154,20 +154,16 @@ Page({
         data: {
           attentionWxTime: Date.parse(new Date()),
           birthday: Date.parse(new Date()),
-          consumePwd: "123456",
-          customerId: "0",
-          customerMainId: "0",
-          // loginId: wx.getStorageSync('mobile'),
-          loginId: '18875153030',
+          loginId: wx.getStorageSync('mobile'),
           loginType: '0',
           name: that.data.name,
           sex: that.data.sex,
           wxIconUrl: that.data.avatar
         },
         success(res) {
-          console.log(res)
-          if (res.data.code == 0) {
-            wx.setStorageSync('customerId', res.data.result.customerId)
+          let data = that.getRealJsonData(res.data)
+          if (data.code == 0) {
+            wx.setStorageSync('customerId', data.result.customerId)
             wx.showModal({
               title: '提示',
               content: "注册成功",

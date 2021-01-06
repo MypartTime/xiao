@@ -1,0 +1,21 @@
+<view class="container">
+  <image src="{{avatar}}" class="avatar"></image>
+  <view class="user_con">
+    <view class="info_item">
+      <text class="info_title">昵称：</text>
+      <text class="info_content">{{userInfo.customerName}}</text>
+    </view>
+    <view class="info_item">
+      <text class="info_title">身份：</text>
+      <text class="info_content">{{userInfo.level?'会员':'顾客'}}</text>
+    </view>
+    <view class="info_item">
+      <text class="info_title">注册时间：</text>
+      <text class="info_content">{{userInfo.birthday}}</text>
+    </view>
+    <view class="info_item">
+      <text class="info_title">电话：</text>
+      <text class="info_content">{{userInfo.mobile}}</text>
+    </view>
+  </view>
+</view>

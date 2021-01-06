@@ -1,1 +1,35 @@
-/* miniprogram/pages/userinfo/userinfo.wxss */
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+.avatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin: 100rpx auto ;
+}
+.user_con{
+  border-radius: 5px;
+  width: 80vw;
+  padding: 40rpx;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px #999;
+}
+.info_item{
+  width: 100%;
+  font-size: 28rpx;
+  border-bottom: 1px solid #999;
+  padding: 30rpx 0;
+  display: block;
+}
+.info_title{
+  display: inline-block;
+  width: 30%;
+  text-align: left;
+}
+.info_content{
+  display: inline-block;
+  width: 70%;
+  text-align: center;
+}

@@ -1,0 +1,69 @@
+.purse-container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+.purse_img{
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin: 100rpx auto 0;
+}
+.purse_over{
+  margin-top: 60rpx;
+}
+.purse_title{
+  text-align: center;
+  font-size: 26rpx;
+}
+.money{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10rpx;
+  text-align: center;
+  position: relative;
+}
+.account{
+  position: relative;
+  font-weight: bold;
+  font-size: 80rpx;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.account::before{
+  content: '￥';
+  position: absolute;
+  font-size: 40rpx;
+  font-weight: bold;
+  left: -30rpx;
+  top: 10rpx;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.controls{
+  position: fixed;
+  bottom: 200rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.controls button{
+  width: 300rpx !important;
+  font-size: 26rpx;
+  box-sizing: border-box;
+}
+.controls button:nth-last-of-type(1){
+  background-color: #f2f2f2;
+}
+.record{
+  margin-top: 20rpx;
+}
+.purse_tip{
+  width: 400rpx;
+  margin: 200rpx auto 0;
+}
+.purse_tip .purse_title{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  font-weight: bold;
+  color: #333;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
