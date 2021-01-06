@@ -17,7 +17,7 @@
   </view> -->
   <view class="controls" wx:if="{{userInfo.level}}">
     <button data-i="1" bindtap="handleRouter" type="primary">储值</button>
-    <button data-i="2" bindtap="handleRouter" type="default" class="record">消费记录</button>
+    <button data-i="2" bindtap="handleRouter" type="default" class="record">充值记录</button>
   </view>
   <view class="controls" wx:if="{{!userInfo.level}}">
     <button data-i="3" bindtap="handleRouter" type="primary">成为会员</button>

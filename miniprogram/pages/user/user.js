@@ -3,13 +3,16 @@ Page({
   data: {
     mobile:wx.getStorageSync('mobile'),
     avatar:wx.getStorageSync('avatar'),
+    customerId:wx.getStorageSync('customerId'),
     name:"",
     userInfo:{},
     time:new Date().getHours()
   },
 
   onShow: function (options) {
-    this.getUserInfo()
+    if(wx.getStorageSync('customerId')){
+      this.getUserInfo()
+    }
     this.setData({
       mobile:wx.getStorageSync('mobile'),
       avatar:wx.getStorageSync('avatar'),

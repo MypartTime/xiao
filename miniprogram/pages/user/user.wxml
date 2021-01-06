@@ -1,6 +1,6 @@
 <view class="my_container">
   <navigator url="/pages/login/login">
-    <view class="login" wx:if="{{!mobile}}">
+    <view class="login" wx:if="{{!(mobile&&customerId)}}">
       <view class="tips">
         <view class="title">点击登录</view>
         <view class="small">1秒登录，体验更多功能</view>
@@ -8,7 +8,7 @@
       <image src="/images/no-log.png" class="avatar"></image>
     </view>
   </navigator>
-  <view class="user" wx:if="{{mobile}}">
+  <view class="user" wx:if="{{mobile&&customerId}}">
     <image src="{{avatar}}" class="user_avatar"></image>
     <view class="name">{{name}}</view>
     <view class="greetings">{{userInfo.level?'尊敬的会员，':'尊敬的顾客，'}}{{time <= 12 ? '早上好' : time <= 18 ? '下午好':'晚上好'}}</view>

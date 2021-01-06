@@ -23,12 +23,15 @@ Page({
     let i = e.currentTarget.dataset.i
     this.setData({
       active: i
+    },() => {
+      this.getOrderList()
     })
   },
   onLoad(){
     this.getOrderList()
   },
   getOrderList() {
+    app.showLoading('加载中')
     const that = this
     const {
       nowTime,
@@ -64,6 +67,7 @@ Page({
         },
         method: "POST",
         success(result) {
+          app.hideLoading()
           console.log(result)
           if(result.data.code == 0){
             that.setData({

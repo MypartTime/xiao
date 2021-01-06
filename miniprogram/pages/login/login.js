@@ -35,7 +35,6 @@ Page({
     })
   },
   getUserInfo(e) { //获取用户信息
-    console.log(e.detail)
     wx.setStorageSync('avatar', e.detail.userInfo.avatarUrl)
     wx.setStorageSync('name', e.detail.userInfo.nickName)
     this.setData({
@@ -65,6 +64,7 @@ Page({
           let data = that.getRealJsonData(result.data)
           console.log(data)
           if (data.code == 0) {
+            that.addCustomer()
             wx.showToast({
               title: '登录成功'
             })
@@ -164,7 +164,9 @@ Page({
           wxIconUrl: that.data.avatar
         },
         success(res) {
-          let data = that.getRealJsonData(res.data)
+          console.log(res)
+          let data = that.getRealJsonData(res)
+          console.log(data)
           if (data.code == 0) {
             wx.setStorageSync('customerId', data.result.customerId)
             wx.showModal({

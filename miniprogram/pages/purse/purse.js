@@ -48,7 +48,7 @@ Page({
         app.navigator('/pages/recharge/recharge');
         break;
       case '2':
-
+        app.navigator('/pages/record/record');
         break;
       case '3':
         app.navigator('/pages/recharge/recharge');

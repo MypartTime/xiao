@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/record/record",
     "pages/user/user",
+    "pages/record/record",
     "pages/purse/purse",
     "pages/recharge/recharge",
     "pages/login/login",

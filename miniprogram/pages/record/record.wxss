@@ -22,3 +22,25 @@
   left: calc(50% - 10%);
   background-color: #ff5e57;
 }
+.record_list{
+  width: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.record_list_item{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  margin: 20rpx 0;
+  box-shadow: 0 0 10px #bdc3c7;
+}
+.record_list_item_add{
+  font-size-adjust: 26rpx;
+  color: #333;
+  line-height: 50rpx;
+}
+.notfound{
+  width: 80vw;
+  display: block;
+  margin: 0 auto;
+}
