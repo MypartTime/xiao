@@ -49,17 +49,27 @@
   background-color: #26cad3;
   color: #fff;
 }
-.recharge_control{
-  margin-top: 200rpx;
-}
 .recharge_control button{
   font-size: 26rpx;
 }
 .recharge_input{
   width: 100%;
-  margin: 10rpx 0;
+  margin: 20rpx 0;
   border: 1px solid #999;
   padding: 20rpx 10rpx;
   box-sizing: border-box;
   border-radius: 5px;
+}
+.show_account{
+  margin: 200rpx auto 100rpx;
+  text-align: center;
+  font-size: 40rpx;
+}
+.show_account view{
+  height: 40rpx;
+  color: #05c46b;
+  font-weight: bold;
+}
+.show_account view:nth-last-of-type(1){
+  margin-top: 20rpx;
 }

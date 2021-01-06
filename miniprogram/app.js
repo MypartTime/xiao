@@ -43,5 +43,19 @@ App({
     wx.navigateTo({
       url
     })
+  },
+  showToast(title,icon="success"){
+    wx.showToast({
+      title,
+      icon
+    })
+  },
+  showLoading(title){
+    wx.showLoading({
+      title,
+    })
+  },
+  hideLoading(){
+    wx.hideLoading()
   }
 })

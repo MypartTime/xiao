@@ -1,1 +1,24 @@
-/* miniprogram/pages/record/record.wxss */
+.record_nav{
+  display: flex;
+}
+.record_nav_item{
+  flex: 1;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.record_nav .active{
+  color: #ff5e57;
+  font-weight: bold;
+  position: relative;
+}
+.record_nav .active::after{
+  position: absolute;
+  content: '';
+  width: 20%;
+  height: 2px;
+  bottom: -4rpx;
+  left: calc(50% - 10%);
+  background-color: #ff5e57;
+}

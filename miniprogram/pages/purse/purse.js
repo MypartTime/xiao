@@ -1,12 +1,14 @@
 const app = getApp()
 Page({
   data: {
-    userInfo:{}
+    userInfo: {},
+    show:false
   },
-  onShow(){
+  onShow() {
     this.getUserInfo()
   },
-  getUserInfo(){
+  getUserInfo() {
+    app.showLoading('加载中')
     const that = this
     app.getSign().then(res => {
       wx.request({
@@ -14,28 +16,39 @@ Page({
         header: {
           "Content-Type": "application/json"
         },
-        data:{
-          customerId:wx.getStorageSync('customerId')
+        data: {
+          customerId: wx.getStorageSync('customerId')
         },
         method: "POST",
-        success(result){
-          if(result.data.code == 0){
+        success(result) {
+          app.hideLoading()
+          if (result.data.code == 0) {
             that.setData({
-              userInfo:result.data.result
+              userInfo: result.data.result,
+              show:true
+            })
+          }else{
+            that.setData({
+              show:true
+            })
+            wx.showModal({
+              title:'提示',
+              content:result.data.message,
+              showCancel:false
             })
           }
         }
       })
     })
   },
-  handleRouter(e){
+  handleRouter(e) {
     let i = e.currentTarget.dataset.i
     switch (i) {
       case '1':
         app.navigator('/pages/recharge/recharge');
         break;
       case '2':
-        
+
         break;
       case '3':
         app.navigator('/pages/recharge/recharge');

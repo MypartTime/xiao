@@ -1,13 +1,13 @@
 <view class="my_container">
-  <view class="login" wx:if="{{!mobile}}">
-    <view class="tips">
-      <navigator url="/pages/login/login">
+  <navigator url="/pages/login/login">
+    <view class="login" wx:if="{{!mobile}}">
+      <view class="tips">
         <view class="title">点击登录</view>
-      </navigator>
-      <view class="small">1秒登录，体验更多功能</view>
+        <view class="small">1秒登录，体验更多功能</view>
+      </view>
+      <image src="/images/no-log.png" class="avatar"></image>
     </view>
-    <image src="/images/no-log.png" class="avatar"></image>
-  </view>
+  </navigator>
   <view class="user" wx:if="{{mobile}}">
     <image src="{{avatar}}" class="user_avatar"></image>
     <view class="name">{{name}}</view>

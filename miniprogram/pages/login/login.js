@@ -69,8 +69,11 @@ Page({
               title: '登录成功'
             })
             wx.setStorageSync('customerId', data.result.customerId)
-            wx.setStorageSync('customerMainId', data.result.customerMainId)
-            wx.setStorageSync('memberId', data.result.memberId)
+            setTimeout(() => {
+              wx.navigateBack({
+                delta: 1,
+              })
+            }, 800);
           } else if (data.code == 2000) {
             that.addCustomer()
           } else {
@@ -171,7 +174,7 @@ Page({
               success(r) {
                 if (r.confirm) {
                   wx.navigateBack({
-                    delta: -1,
+                    delta: 1,
                   })
                 }
               }

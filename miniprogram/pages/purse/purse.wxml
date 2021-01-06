@@ -1,9 +1,9 @@
-<view class="purse-container">
+<view class="purse-container" wx:if="show">
   <image src="/images/my-purse.png" class="purse_img"></image>
   <view class="purse_over" wx:if="{{userInfo.level}}">
     <view class="purse_title">我的余额</view>
     <view class="money">
-      <text class="account">168</text>
+      <text class="account">{{userInfo.remainValue}}</text>
     </view>
   </view>
   <view class="purse_tip" wx:if="{{!userInfo.level}}">

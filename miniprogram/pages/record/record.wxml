@@ -1,2 +1,6 @@
-<!--miniprogram/pages/record/record.wxml-->
-<text>miniprogram/pages/record/record.wxml</text>
+<view class="record_nav">
+  <view data-i="1" bindtap="handleNav" class="{{active == 1? 'record_nav_item active':'record_nav_item'}}">近7天</view>
+  <view data-i="2" bindtap="handleNav" class="{{active == 2? 'record_nav_item active':'record_nav_item'}}">近一月</view>
+  <view data-i="3" bindtap="handleNav" class="{{active == 3? 'record_nav_item active':'record_nav_item'}}">近三月</view>
+</view>
+
