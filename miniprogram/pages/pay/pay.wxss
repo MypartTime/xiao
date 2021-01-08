@@ -1,4 +1,4 @@
-.container {
+.pay_container {
   width: 100vw;
   padding: 0 100rpx;
   box-sizing: border-box;
@@ -7,11 +7,141 @@
   margin-top: 100rpx;
   width: 100%;
   border: 1px solid #999;
-  height: 80rpx;
+  height: 100rpx;
+  border-radius: 5px;
   display: block;
-  padding: 10px;
+  padding:0 100rpx;
+  box-sizing: border-box;
+  position: relative;
 }
-.discounts{
+.pay-input::before{
+  content: '￥';
+  position: absolute;
+  font-size: 60rpx;
+  left: 20rpx;
+  color: #999999;
+  top: calc(50% - 40rpx);
+}
+.pay_discounts{
   width: 100%;
   text-align: left;
+  margin: 30rpx 0;
+}
+.pay_discounts_title{
+  font-size: 26rpx;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #ff6b6b;
+  font-weight: bold;
+}
+.pay_discounts_item{
+  margin: 10rpx 0;
+  color: #333;
+  font-weight: bold;
+  border-bottom: 1px dashed #999;
+  padding-bottom: 20rpx;
+}
+.pay_discounts_item_title{
+  font-size: 26rpx;
+}
+.pay_discounts_item_account{
+  font-size: 26rpx;
+  margin-left: 20rpx;
+}
+.pay_end_account{
+  font-size: 40rpx;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 100rpx;
+  color: #ff6b6b;
+}
+.pay_end_account text:nth-last-of-type(1){
+  margin-top: 10rpx;
+}
+.pay_controls,.pay_login_btn{
+  position: fixed;
+  bottom: 200rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.pay_tips{
+  position: fixed;
+  bottom: 100rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  font-size: 26rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.pay_tips_a{
+  color: #2e86de;
+}
+.notfound{
+  width: 80vw;
+  display: block;
+  margin: 0 auto;
+}
+.pay_login_btn button{
+  font-size: 26rpx;
+}
+.pay_notice{
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+.pay_pwd_container{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.4);
+}
+.pay_pwd{
+  position: absolute;
+  width: 70vw;
+  left: 0;
+  right: 0;
+  top: calc(50% - 150rpx);
+  margin: 0 auto;
+  height: 300rpx;
+  background-color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+}
+.pay_pwd input{
+  border: 1px solid #eee;
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  font-size:30rpx;
+  margin-top: 20rpx;
+}
+.pay_pwd_title{
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+.pay_pwd_account{
+  text-align: center;
+  font-size: 60rpx;
+  line-height: 80rpx;
+}
+.pay_pwd_icon{
+  position: absolute;
+  left: 10rpx;
+  top: 10rpx;
+}
+.pay_methods{
+  width: 100%;
+  height: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.pay_methods_item{
+  height: 80rpx;
 }

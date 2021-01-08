@@ -1,24 +1,25 @@
 const app = getApp()
 Page({
   data: {
-    mobile:wx.getStorageSync('mobile'),
-    avatar:wx.getStorageSync('avatar'),
-    customerId:wx.getStorageSync('customerId'),
-    name:"",
-    userInfo:{},
-    time:new Date().getHours()
+    mobile: wx.getStorageSync('mobile'),
+    avatar: wx.getStorageSync('avatar'),
+    customerId: wx.getStorageSync('customerId'),
+    name: "",
+    userInfo: {},
+    time: new Date().getHours()
   },
 
-  onShow: function (options) {
-    if(wx.getStorageSync('customerId')){
+  onShow: function () {
+    if (wx.getStorageSync('customerId')) {
       this.getUserInfo()
     }
     this.setData({
-      mobile:wx.getStorageSync('mobile'),
-      avatar:wx.getStorageSync('avatar'),
+      mobile: wx.getStorageSync('mobile'),
+      avatar: wx.getStorageSync('avatar'),
+      customerId: wx.getStorageSync('customerId'),
     })
   },
-  getUserInfo(){
+  getUserInfo() {
     const that = this
     app.getSign().then(res => {
       wx.request({
@@ -26,25 +27,25 @@ Page({
         header: {
           "Content-Type": "application/json"
         },
-        data:{
-          customerId:wx.getStorageSync('customerId')
+        data: {
+          customerId: wx.getStorageSync('customerId')
         },
         method: "POST",
-        success(result){
-          if(result.data.code == 0){
+        success(result) {
+          if (result.data.code == 0) {
             that.setData({
-              userInfo:result.data.result,
-              name:result.data.result.customerName
+              userInfo: result.data.result,
+              name: result.data.result.customerName
             })
           }
         }
       })
     })
   },
-  handleRouter(e){
+  handleRouter(e) {
     let i = e.currentTarget.dataset.i
-    if(wx.getStorageSync('customerId')){
-      switch(i){
+    if (wx.getStorageSync('customerId')) {
+      switch (i) {
         case '1':
           app.navigator('/pages/userinfo/userinfo');
           break;
@@ -52,18 +53,21 @@ Page({
           app.navigator('/pages/purse/purse');
           break;
         case '3':
-          app.navigator('/pages/recharge/recharge');
+          app.navigator('/pages/ticket/ticket');
           break;
         case '4':
-          if(this.data.userInfo.level){
-  
-          }else{
-            app.showToast('充值会员即可设置支付密码','none')
+          app.navigator('/pages/recharge/recharge');
+          break;
+        case '5':
+          if (this.data.userInfo.level) {
+            app.navigator('/pages/changePwd/changePwd');
+          } else {
+            app.showToast('充值会员即可设置支付密码', 'none')
           }
-          break; 
+          break;
       }
-    }else{
-      app.showToast('请先登录','error')
+    } else {
+      app.showToast('请先登录', 'error')
     }
   }
 })

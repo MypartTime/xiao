@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eval5": "^1.4.6"
-  }
+    "@vant/weapp": "^1.6.4",
+    "eval5": "^1.4.6",
+    "md5": "^2.3.0"
+  },
+  "style": "v2"
 }

@@ -1,11 +1,14 @@
 const app = getApp()
 Page({
   data: {
-    avatar:wx.getStorageSync('avatar'),
+    avatar:'',
     userInfo:{}
   },
   onLoad(){
     this.getUserInfo()
+    this.setData({
+      avatar:wx.getStorageSync('avatar')
+    })
   },
   getUserInfo(){
     const that = this

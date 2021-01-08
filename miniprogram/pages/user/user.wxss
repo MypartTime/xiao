@@ -81,8 +81,8 @@
   margin-left: 100rpx;
 }
 .item_img{
-  width: 60rpx;
-  height: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
   position: absolute;
   top: calc( 50% - 30rpx);
 }

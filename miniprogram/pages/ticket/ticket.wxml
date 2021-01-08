@@ -1,0 +1,7 @@
+<view class="ticket_list_nav">
+  <view class="{{active == item.value? 'ticket_list_nav_item active':'ticket_list_nav_item'}}" wx:for="{{navList}}" data-i="{{item.value}}" bindtap="handleNav" wx:key="index">{{item.title}}</view>
+</view>
+<view class="ticket_list_contaier">
+
+</view>
+<image src="/images/404.png" wx:if="{{list.items.length == 0}}" class="notfound" mode="aspectFit"></image>

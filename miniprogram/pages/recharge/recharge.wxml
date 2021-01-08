@@ -5,7 +5,7 @@
   </view>
   <view class="card_info">
     <view class="card_info_item">卡号：{{userInfo.memberId}}</view>
-    <view class="card_info_item">余额：{{userInfo.remainValue}}</view>
+    <view class="card_info_item">余额：{{userInfo.remainValue}}元</view>
     <view class="card_info_item">电话：{{userInfo.mobile}}</view>
   </view>
 </view> -->

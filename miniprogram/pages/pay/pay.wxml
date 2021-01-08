@@ -1,6 +1,49 @@
-<view class="container">
-  <input type="number" placeholder="请输入" class="pay-input" />
-  <view class="discounts">
-    <view>优惠金额</view>
+<view class="pay_container" wx:if="{{show}}">
+  <input type="number" bindinput="handleInput" placeholder="请输入" class="pay-input" />
+  <view class="pay_notice">付款前请先与商家确认买单金额</view>
+
+  <view class="pay_end_account" wx:if="{{account}}">
+    <view>待支付</view>
+    <view>{{account}}元</view>
+  </view>
+  <view class="pay_controls">
+    <button type="primary" bindtap="handlePay">支付</button>
+  </view>
+  <view class="pay_tips" wx:if="{{!level}}">
+    成为会员，享受会员折扣，点击立即<navigator url="/pages/recharge/recharge"><text class="pay_tips_a">开通会员</text>
+    </navigator>
+  </view>
+</view>
+<view class="pay_login_btn" wx:if="{{showLog}}">
+  <image src="/images/404.png" class="notfound" mode="aspectFit"></image>
+  <navigator url="/pages/login/login">
+    <button type="primary">请先登录</button>
+  </navigator>
+</view>
+
+<van-popup
+  show="{{ true }}"
+  position="bottom"
+  custom-style="height:30%;"
+  close-on-click-overlay="{{tapClose}}"
+  bind:close="onClose"
+  round="{{true}}"
+>
+  <view class="pay_methods">
+    <view class="pay_methods_item">
+      <text>余额支付</text>
+    </view>
+    <view class="pay_methods_item">
+      <text>微信支付</text>
+    </view>
+  </view>
+</van-popup>
+
+<view class="pay_pwd_container" wx:if="{{showPwd}}">
+  <view class="pay_pwd">
+    <icon class="pay_pwd_icon" bindtap="handlePwd" color="#d2dae2" type="cancel" size="30"></icon>
+    <view class="pay_pwd_title">请输入支付密码</view>
+    <view class="pay_pwd_account">￥{{deductAccount}}</view>
+    <input type="number"  password="{{true}}" maxlength="6" bindinput="inputPwd" />
   </view>
 </view>

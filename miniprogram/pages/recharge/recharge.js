@@ -104,7 +104,8 @@ Page({
           loginId: wx.getStorageSync('mobile'),
           loginType: "0",
           name: wx.getStorageSync('name'),
-          sex: that.data.userInfo.sex
+          sex: that.data.userInfo.sex,
+          memo:'123456'
         },
         method: "POST",
         success(result) {

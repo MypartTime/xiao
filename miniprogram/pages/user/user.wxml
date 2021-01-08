@@ -26,11 +26,16 @@
       <image src="/images/arrow.png" class="arrow"></image>
     </view>
     <view class="nav_item" data-i='3' bindtap="handleRouter">
+      <image src="/images/ticket.png" class="item_img"></image>
+      <text>我的优惠券</text>
+      <image src="/images/arrow.png" class="arrow"></image>
+    </view>
+    <view class="nav_item" data-i='4' bindtap="handleRouter">
       <image src="/images/rmb.png" class="item_img"></image>
       <text>在线充值</text>
       <image src="/images/arrow.png" class="arrow"></image>
     </view>
-    <view class="nav_item" data-i='4' bindtap="handleRouter">
+    <view class="nav_item" data-i='5' bindtap="handleRouter">
       <image src="/images/setting.png" class="item_img"></image>
       <text>设置支付密码</text>
       <image src="/images/arrow.png" class="arrow"></image>

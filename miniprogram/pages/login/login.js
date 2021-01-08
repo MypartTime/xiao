@@ -52,17 +52,16 @@ Page({
         header: {
           "Content-Type": "application/json"
         },
+        dataType: 'text',
+        method: "POST",
         data: {
           loginId: mobile,
           loginType: 0
         },
-        dataType: 'text',
-        method: "POST",
         success(result) {
           wx.hideLoading()
-
           let data = that.getRealJsonData(result.data)
-          console.log(data)
+          // console.log(data)
           if (data.code == 0) {
             that.addCustomer()
             wx.showToast({
@@ -153,6 +152,7 @@ Page({
         header: {
           "Content-Type": "application/json"
         },
+        dataType: 'text',
         method: "POST",
         data: {
           attentionWxTime: Date.parse(new Date()),
@@ -165,7 +165,7 @@ Page({
         },
         success(res) {
           console.log(res)
-          let data = that.getRealJsonData(res)
+          let data = that.getRealJsonData(res.data)
           console.log(data)
           if (data.code == 0) {
             wx.setStorageSync('customerId', data.result.customerId)

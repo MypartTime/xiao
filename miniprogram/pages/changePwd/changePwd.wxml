@@ -1,0 +1,25 @@
+<view class="change_pwd_container">
+  <form bindsubmit="handlepwd">
+    <view class="change_pwd_container_item">
+      <text>旧密码:</text>
+      <input type="number"  password="{{true}}" maxlength="6" placeholder="请输入旧的六位密码" placeholder-style="font-size:24rpx;color:#718093"
+        name="old" />
+    </view>
+    <view class="change_pwd_container_item">
+      <text>新密码:</text>
+      <input type="number"  password="{{true}}" maxlength="6" placeholder="请输入新的六位密码" placeholder-style="font-size:24rpx;color:#718093"
+        name="newpwd" />
+    </view>
+    <view class="change_pwd_container_item">
+      <text>确认密码:</text>
+      <input type="number"  password="{{true}}" maxlength="6" placeholder="请确认新的六位密码" placeholder-style="font-size:24rpx;color:#718093"
+        name="renewpwd" />
+    </view>
+    <view class="change_pwd_container_tips">
+      <text>注:初始密码为123456，如您遗忘支付密码，请联系店员重置密码</text>
+    </view>
+    <view class="change_pwd_container_controls">
+      <button form-type="submit" type="primary">修改密码</button>
+    </view>
+  </form>
+</view>

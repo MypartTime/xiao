@@ -1,6 +1,6 @@
 <!-- <button bindtap="handlePayment">微信支付</button> -->
 <view class="dish-container">
-  <view class="dish-item" wx:for="{{dishList}}" wx:key="index" >
+  <view class="dish-item" wx:if="{{item.name!='微信小程序支付'}}" wx:for="{{dishList}}" wx:key="index" >
     <image class="dish-img" mode="aspectFill" src="{{item.imgUrl?item.imgUrl:'../../images/dish-nopic.png'}}"></image>
     <view class="dish-title">{{item.name}}</view>
     <view class="price">

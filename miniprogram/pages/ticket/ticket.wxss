@@ -1,0 +1,29 @@
+.notfound{
+  width: 80vw;
+  display: block;
+  margin: 0 auto;
+}
+.ticket_list_nav{
+  display: flex;
+}
+.ticket_list_nav_item{
+  flex: 1;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.ticket_list_nav .active{
+  color: #ff5e57;
+  font-weight: bold;
+  position: relative;
+}
+.ticket_list_nav .active::after{
+  position: absolute;
+  content: '';
+  width: 20%;
+  height: 2px;
+  bottom: -4rpx;
+  left: calc(50% - 10%);
+  background-color: #ff5e57;
+}

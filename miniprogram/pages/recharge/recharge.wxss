@@ -1,6 +1,6 @@
 .card{
   width: 90vw;
-  background-color: #1ebfc7;
+  background-color: #07c160;
   margin: 10rpx auto;
   border-radius: 10px;
   box-sizing: border-box;
@@ -9,7 +9,8 @@
 .card_store{
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px dashed #32d6df;
+  border-bottom: 2px dashed #21f085;
+  padding: 10rpx 0;
 }
 .card_store text{
   line-height: 60rpx;
@@ -46,7 +47,7 @@
   color: #333;
 }
 .account_list .active{
-  background-color: #26cad3;
+  background-color: #07c160;
   color: #fff;
 }
 .recharge_control button{
@@ -56,7 +57,7 @@
   width: 100%;
   margin: 20rpx 0;
   border: 1px solid #999;
-  padding: 20rpx 10rpx;
+  padding: 20rpx 40rpx;
   box-sizing: border-box;
   border-radius: 5px;
 }
@@ -67,7 +68,7 @@
 }
 .show_account view{
   height: 40rpx;
-  color: #05c46b;
+  color: #07c160;
   font-weight: bold;
 }
 .show_account view:nth-last-of-type(1){

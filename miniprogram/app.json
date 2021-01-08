@@ -1,13 +1,15 @@
 {
   "pages": [
-    "pages/user/user",
-    "pages/record/record",
-    "pages/purse/purse",
-    "pages/recharge/recharge",
-    "pages/login/login",
-    "pages/userinfo/userinfo",
     "pages/pay/pay",
     "pages/order/order",
+    "pages/user/user",
+    "pages/ticket/ticket",
+    "pages/changePwd/changePwd",
+    "pages/login/login",
+    "pages/recharge/recharge",
+    "pages/record/record",
+    "pages/purse/purse",
+    "pages/userinfo/userinfo",
     "pages/index/index"
   ],
   "window": {
@@ -46,5 +48,7 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index"
+  }
 }
