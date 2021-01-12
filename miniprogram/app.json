@@ -1,16 +1,16 @@
 {
   "pages": [
-    "pages/pay/pay",
     "pages/order/order",
+    "pages/pay/pay",
+    "pages/index/index",
+    "pages/record/record",
+    "pages/recharge/recharge",
     "pages/user/user",
     "pages/ticket/ticket",
-    "pages/changePwd/changePwd",
     "pages/login/login",
-    "pages/recharge/recharge",
-    "pages/record/record",
+    "pages/changePwd/changePwd",
     "pages/purse/purse",
-    "pages/userinfo/userinfo",
-    "pages/index/index"
+    "pages/userinfo/userinfo"
   ],
   "window": {
     "backgroundColor": "#fff",

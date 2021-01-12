@@ -1,0 +1,11 @@
+<view class="order_container">
+  <view class="order_container_item" wx:for="{{list}}" wx:key="index">
+    <view class="order_container_item_time">订单号：{{item.tradeId}}</view>
+    <!-- <view class="order_container_item_time">开放平台订单号：{{item.orderId}}</view> -->
+    <view class="order_container_item_time">消费时间：{{item.create_time}}</view>
+    <view class="order_container_item_time">消费金额：{{item.account}}元</view>
+    <view class="order_container_item_time">支付方式：{{item.payment}}</view>
+    <view wx:if="{{item.level}}" class="order_container_item_time">会员余额：{{item.overage}}元</view>
+  </view>
+</view>
+<image src="/images/404.png" wx:if="{{list.length == 0}}" class="notfound" mode="aspectFit"></image>

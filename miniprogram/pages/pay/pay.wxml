@@ -1,5 +1,5 @@
 <view class="pay_container" wx:if="{{show}}">
-  <input type="number" bindinput="handleInput" placeholder="请输入" class="pay-input" />
+  <input type="digit" bindinput="handleInput" placeholder="请输入" class="pay-input" />
   <view class="pay_notice">付款前请先与商家确认买单金额</view>
 
   <view class="pay_end_account" wx:if="{{account}}">
@@ -22,19 +22,21 @@
 </view>
 
 <van-popup
-  show="{{ true }}"
+  show="{{ showMethods }}"
   position="bottom"
-  custom-style="height:30%;"
+  custom-style="height:300rpx"
   close-on-click-overlay="{{tapClose}}"
   bind:close="onClose"
   round="{{true}}"
 >
   <view class="pay_methods">
-    <view class="pay_methods_item">
-      <text>余额支付</text>
+    <view class="pay_methods_item" data-i="1" bindtap="choosePayment">
+      <image src="/images/wallet.png" class="pay_methods_item_img" mode="widthFix"></image>
+      <text class="pay_methods_item_title">余额支付(可用余额{{userInfo.remainValue}}元)</text>
     </view>
-    <view class="pay_methods_item">
-      <text>微信支付</text>
+    <view class="pay_methods_item" data-i="2" bindtap="choosePayment">
+      <image src="/images/weixin.png" class="pay_methods_item_img" mode="widthFix"></image>
+      <text class="pay_methods_item_title">微信支付</text>
     </view>
   </view>
 </van-popup>
@@ -43,7 +45,7 @@
   <view class="pay_pwd">
     <icon class="pay_pwd_icon" bindtap="handlePwd" color="#d2dae2" type="cancel" size="30"></icon>
     <view class="pay_pwd_title">请输入支付密码</view>
-    <view class="pay_pwd_account">￥{{deductAccount}}</view>
+    <view class="pay_pwd_account">￥{{account}}</view>
     <input type="number"  password="{{true}}" maxlength="6" bindinput="inputPwd" />
   </view>
 </view>

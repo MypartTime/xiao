@@ -1,5 +1,9 @@
 .record_nav{
   display: flex;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background-color: #f7f7f7;
 }
 .record_nav_item{
   flex: 1;
@@ -24,7 +28,7 @@
 }
 .record_list{
   width: 100%;
-  padding: 0 40rpx;
+  padding: 80rpx 40rpx 0;
   box-sizing: border-box;
 }
 .record_list_item{
@@ -33,14 +37,23 @@
   padding: 20rpx;
   margin: 20rpx 0;
   box-shadow: 0 0 10px #bdc3c7;
+  color: #fff;
+}
+.record_list_item_store{
+  font-size: 28rpx;
 }
 .record_list_item_add{
-  font-size-adjust: 26rpx;
-  color: #333;
+  font-size: 26rpx;
   line-height: 50rpx;
 }
 .notfound{
   width: 80vw;
   display: block;
   margin: 0 auto;
+}
+.add{
+  background-color: #5bae23;
+}
+.reduce{
+  background-color: #f28e16;
 }

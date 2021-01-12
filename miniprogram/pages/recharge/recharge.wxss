@@ -50,6 +50,10 @@
   background-color: #07c160;
   color: #fff;
 }
+.recharge_control{
+  width: 300rpx;
+  margin: 0 auto;
+}
 .recharge_control button{
   font-size: 26rpx;
 }

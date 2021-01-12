@@ -4,10 +4,10 @@
   <view data-i="3" bindtap="handleNav" class="{{active == 3? 'record_nav_item active':'record_nav_item'}}">近三月</view>
 </view>
 <view class="record_list">
-  <view class="record_list_item" wx:for="{{list.items}}">
+  <view class="{{ item.addValue > 0 ? 'add record_list_item':'reduce record_list_item'}}" wx:for="{{list.items}}" wx:key="index">
     <view class="record_list_item_store">门店：{{item.commercialName}}</view>
     <view class="record_list_item_add">充值编号：{{item.id}}</view>
-    <view class="record_list_item_add">充值金额：{{item.addValue}}元</view>
+    <view class="record_list_item_add">{{item.addValue>0?'充值金额':'消费金额'}}：{{item.addValue}}元</view>
     <view class="record_list_item_add">余额：{{item.endValue}}元</view>
   </view>
 </view>
