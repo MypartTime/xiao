@@ -4,8 +4,8 @@
     margin: 200rpx  auto ;
 }
 .login{
-    width: 100rpx;
-    line-height: 40rpx;
+    width: 300rpx;
+    line-height: 60rpx;
     text-align: center;
     border-radius: 40rpx;
     display: block;

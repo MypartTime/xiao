@@ -1,6 +1,6 @@
 .card{
   width: 90vw;
-  background-color: #07c160;
+  background-color: #de1c31;
   margin: 10rpx auto;
   border-radius: 10px;
   box-sizing: border-box;
@@ -9,7 +9,7 @@
 .card_store{
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px dashed #21f085;
+  border-bottom: 2px dashed #e3b4b8;
   padding: 10rpx 0;
 }
 .card_store text{
@@ -25,7 +25,7 @@
 .recharge{
   width: 90vw;
   margin: 0 auto;
-  margin-top: 100rpx;
+  margin-top: 40rpx;
 }
 .recharge_title{
   font-size: 28 rpx;
@@ -47,12 +47,12 @@
   color: #333;
 }
 .account_list .active{
-  background-color: #07c160;
+  background-color: #de1c31;
   color: #fff;
 }
 .recharge_control{
   width: 300rpx;
-  margin: 0 auto;
+  margin: 100rpx auto 0;
 }
 .recharge_control button{
   font-size: 26rpx;
@@ -66,15 +66,23 @@
   border-radius: 5px;
 }
 .show_account{
-  margin: 200rpx auto 100rpx;
+  margin: 100rpx auto 0;
   text-align: center;
   font-size: 40rpx;
 }
 .show_account view{
-  height: 40rpx;
-  color: #07c160;
+  height: 30rpx;
+  color: #de1c31;
   font-weight: bold;
 }
 .show_account view:nth-last-of-type(1){
   margin-top: 20rpx;
+}
+.recharge_tips{
+  padding: 40rpx;
+}
+.recharge_tips view{
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
 }

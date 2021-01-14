@@ -1,4 +1,4 @@
-<!-- <view class="card">
+<view class="card">
   <view class="card_store">
     <text>肖安华卤坊</text>
     <text>会员储值卡</text>
@@ -8,7 +8,7 @@
     <view class="card_info_item">余额：{{userInfo.remainValue}}元</view>
     <view class="card_info_item">电话：{{userInfo.mobile}}</view>
   </view>
-</view> -->
+</view>
 
 <view class="recharge">
   <view class="recharge_title">会员卡储值</view>
@@ -20,9 +20,14 @@
     <input type="number"  bindinput="handleAccout" placeholder="可手动输入储值金额" />
   </view>
 </view>
+<view class="recharge_tips">
+  <view>充值100元，赠送5元，实际到账105元。</view>
+  <view>充值300元，赠送25元，实际到账325元。</view>
+  <view>充值500元，赠送50元，实际到账550元。</view>
+</view>
 <view class="show_account" style="{{account?'opacity:1':'opacity:0'}}">
-  <view>充值金额</view>
-  <view>{{account}}元</view>  
+  <view>到账金额</view>
+  <view>{{account+presentation}}元{{presentation  != 0 ? '（含赠送金额' + presentation + '元）' : ''}}</view>  
 </view>
 <view class="recharge_control">
   <button type="primary" bindtap="handlePayment">充值</button>

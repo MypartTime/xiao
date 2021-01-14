@@ -19,6 +19,10 @@ Page({
       customerId: wx.getStorageSync('customerId'),
     })
   },
+  onPullDownRefresh(){
+    wx.showNavigationBarLoading() 
+    this.getUserInfo()
+  },
   getUserInfo() {
     const that = this
     app.getSign().then(res => {
@@ -32,6 +36,8 @@ Page({
         },
         method: "POST",
         success(result) {
+          wx.hideNavigationBarLoading()
+          wx.stopPullDownRefresh()
           if (result.data.code == 0) {
             that.setData({
               userInfo: result.data.result,

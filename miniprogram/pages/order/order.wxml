@@ -9,3 +9,5 @@
   </view>
 </view>
 <image src="/images/404.png" wx:if="{{list.length == 0}}" class="notfound" mode="aspectFit"></image>
+
+<image src="/images/404.png" wx:if="{{list.length != 0}}" class="notfound1" mode="widthFix"></image>

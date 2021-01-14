@@ -18,3 +18,8 @@
   display: block;
   margin: 0 auto;
 }
+.notfound1{
+  width: 40vw;
+  display: block;
+  margin: 0 auto;
+}

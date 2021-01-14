@@ -6,9 +6,10 @@ Page({
    */
   data: {
     userInfo: {},
+    presentation: 0,
     accountList: [{
-        title: '￥200',
-        value: 200
+        title: '￥100',
+        value: 100
       },
       {
         title: '￥300',
@@ -17,11 +18,7 @@ Page({
       {
         title: '￥500',
         value: 500
-      },
-      {
-        title: '￥1000',
-        value: 1000
-      },
+      }
     ],
     account: ''
   },
@@ -52,8 +49,17 @@ Page({
   },
   selectAccount(e) {
     let dollar = e.currentTarget.dataset.i
+    let presentation = 0
+    if (dollar == 100) {
+      presentation = 5
+    } else if (dollar == 300) {
+      presentation = 25
+    } else {
+      presentation = 50
+    }
     this.setData({
-      account: dollar
+      account: dollar,
+      presentation
     })
   },
   handlePayment() { //唤起支付
@@ -105,7 +111,7 @@ Page({
           loginType: "0",
           name: wx.getStorageSync('name'),
           sex: that.data.userInfo.sex,
-          memo:'123456'
+          memo: '123456'
         },
         method: "POST",
         success(result) {
@@ -129,7 +135,7 @@ Page({
           customerId: wx.getStorageSync('customerId'),
           cardType: 1,
           businessType: 1,
-          amount: that.data.account * 100,
+          amount: (that.data.account+that.data.presentation) * 100,
           tpOrderId: outTradeNo
         },
         method: "POST",
@@ -146,11 +152,11 @@ Page({
                 })
               }
             })
-          }else{
+          } else {
             wx.showModal({
-              title:"提示",
-              content:'系统出错，请联系店员退款',
-              showCancel:false
+              title: "提示",
+              content: '系统出错，请联系店员退款',
+              showCancel: false
             })
           }
         }
@@ -159,8 +165,19 @@ Page({
   },
   handleAccout(e) {
     let account = e.detail.value
+    let presentation = 0
+    if (account < 100) {
+      presentation = 0
+    } else if (account >= 100 && account < 300) {
+      presentation = 5
+    } else if (account >= 300 && account < 500) {
+      performance = 25
+    } else {
+      performance = 50
+    }
     this.setData({
-      account
+      account,
+      presentation
     })
   }
 })

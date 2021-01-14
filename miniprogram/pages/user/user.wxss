@@ -4,14 +4,14 @@
   background-color: #fff;
 }
 .login{
-  padding: 40rpx;
+  padding: 200rpx 40rpx 40rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 4px solid #e5e5e5;
 }
 .user{
-  padding: 40rpx;
+  padding: 200rpx 40rpx 40rpx;
   border-bottom: 4px solid #e5e5e5;
   position: relative;
 }

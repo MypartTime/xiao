@@ -4,12 +4,15 @@
     <view class="dish_header_position_title">地址:</view>
     <view>
       <view class="dish_header_position_item">
-        肖新星（总店）:璧山区壁城街道新生街52号
+        肖新星（总店）:重庆市璧山区壁城街道新生街52号
       </view>
       <view class="dish_header_position_item">
-        肖新星北街店 :璧山区壁城街道新生街52号
+        肖新星北街店 :重庆市璧山区壁铜路118号
       </view>
     </view>
+  </view>
+  <view class="tel">
+    联系电话：159-9890-8949
   </view>
 </view>
 <view class="{{showHeader?'small_dish_header':'small_dish_header hide'}}">
@@ -20,7 +23,7 @@
     <image class="dish-img" mode="aspectFill" src="{{item.imgUrl?item.imgUrl:'../../images/dish-nopic.png'}}"></image>
     <view class="dish-title">{{item.name}}</view>
     <view class="price">
-      <text class="account">{{item.price/100}}元 </text><text class="unit">/斤</text>
+      <text class="account">{{item.price/100}}元</text><text class="unit">/斤</text>
     </view>
   </view>
 </view>

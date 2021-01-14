@@ -11,7 +11,6 @@ Page({
   onLoad() {
     this.getDishList()
     let position = wx.getMenuButtonBoundingClientRect()
-    console.log(position)
     this.setData({
       top: position.top
     })
@@ -44,7 +43,6 @@ Page({
     }
   },
   onPageScroll(e) {
-    console.log(e)
     if (e.scrollTop > 200) {
       this.setData({
         showHeader: true

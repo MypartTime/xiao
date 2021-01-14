@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/order/order",
     "pages/pay/pay",
     "pages/index/index",
-    "pages/record/record",
-    "pages/recharge/recharge",
     "pages/user/user",
-    "pages/ticket/ticket",
     "pages/login/login",
+    "pages/recharge/recharge",
+    "pages/order/order",
+    "pages/record/record",
+    "pages/ticket/ticket",
     "pages/changePwd/changePwd",
     "pages/purse/purse",
     "pages/userinfo/userinfo"
@@ -16,31 +16,31 @@
     "backgroundColor": "#fff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "测试",
+    "navigationBarTitleText": "肖新星卤坊",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
       {
-        "text": "测试",
+        "text": "菜单",
         "pagePath": "pages/index/index",
         "iconPath": "/images/tabs/home.png",
         "selectedIconPath": "images/tabs/home-active.png"
       },
       {
-        "text": "测试",
+        "text": "买单",
         "pagePath": "pages/pay/pay",
         "iconPath": "/images/tabs/pay.png",
         "selectedIconPath": "images/tabs/pay-active.png"
       },
       {
-        "text": "测试",
+        "text": "订单",
         "pagePath": "pages/order/order",
         "iconPath": "/images/tabs/orders.png",
         "selectedIconPath": "images/tabs/orders-active.png"
       },
       {
-        "text": "测试",
+        "text": "我的",
         "pagePath": "pages/user/user",
         "iconPath": "/images/tabs/avatar.png",
         "selectedIconPath": "images/tabs/avatar-active.png"

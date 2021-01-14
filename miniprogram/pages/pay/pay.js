@@ -9,7 +9,8 @@ Page({
     showLog: false, //登录显示
     showPwd: false, //密码框展示
     showMethods: false, //弹出支付方式
-    tapClose: true
+    tapClose: true,
+    isFocus:false
   },
   onShow() {
     if (wx.getStorageSync('mobile') && wx.getStorageSync('customerId')) {
@@ -23,10 +24,15 @@ Page({
       })
     }
   },
+  onPullDownRefresh(){
+    wx.showNavigationBarLoading() 
+    this.getUserInfo()
+  },
   //控制输入金额
   handleInput(e) {
     //总价
-    let account = e.detail.value
+    let account = ((e.detail.value) * 1).toFixed(2)
+    console.log(account)
     this.setData({
       account,
     })
@@ -39,10 +45,13 @@ Page({
   },
   //点击支付
   handlePay() {
-    if (this.data.account * 1 != 0) {
+    console.log(this.data.account * 1 == NaN)
+    if (this.data.account * 1 != 0 && !isNaN(this.data.account * 1 ) && typeof(this.data.account * 1) == 'number') {
       this.setData({
         showMethods: true
       })
+    }else if(isNaN(this.data.account * 1)){
+      app.showToast('请正确输入买单金额', 'error')
     } else {
       app.showToast('请输入买单金额', 'error')
     }
@@ -51,7 +60,8 @@ Page({
     let i = e.currentTarget.dataset.i
     if (i == 1 && this.data.vipAccount >= this.data.account) {
       this.setData({
-        showPwd: true
+        showPwd: true,
+        isFocus:true
       })
     } else if (i == 1 && this.data.vipAccount < this.data.account) {
       wx.showModal({
@@ -66,7 +76,6 @@ Page({
       })
     } else if (i == 2) {
       this.handlePayment()
-      app.showLoading('支付中')
       console.log('微信支付')
     }
     this.setData({
@@ -130,6 +139,8 @@ Page({
         },
         method: "POST",
         success(result) {
+          wx.stopPullDownRefresh()
+          wx.hideNavigationBarLoading()
           app.hideLoading()
           // result.data.result.level = null
           if (result.data.code == 0) {
@@ -243,7 +254,7 @@ Page({
               data:{
                 name:that.data.userInfo.customerName,
                 mobile:wx.getStorageSync('mobile'),
-                create_time:new Date().toLocaleString(),
+                create_time:new Date().toDateString(),
                 account:that.data.account,
                 level:that.data.userInfo.level,
                 payment:type == 1 ? '余额支付' : '微信支付',
