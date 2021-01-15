@@ -27,7 +27,7 @@
 </view>
 <view class="show_account" style="{{account?'opacity:1':'opacity:0'}}">
   <view>到账金额</view>
-  <view>{{account+presentation}}元{{presentation  != 0 ? '（含赠送金额' + presentation + '元）' : ''}}</view>  
+  <view>{{account * 1 + presentation * 1}}元{{presentation  != 0 ? '（含赠送金额' + presentation + '元）' : ''}}</view>  
 </view>
 <view class="recharge_control">
   <button type="primary" bindtap="handlePayment">充值</button>

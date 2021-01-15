@@ -135,7 +135,7 @@ Page({
           customerId: wx.getStorageSync('customerId'),
           cardType: 1,
           businessType: 1,
-          amount: (that.data.account+that.data.presentation) * 100,
+          amount: (that.data.account + that.data.presentation) * 100,
           tpOrderId: outTradeNo
         },
         method: "POST",
@@ -165,15 +165,16 @@ Page({
   },
   handleAccout(e) {
     let account = e.detail.value
+    console.log(account)
     let presentation = 0
     if (account < 100) {
       presentation = 0
     } else if (account >= 100 && account < 300) {
       presentation = 5
     } else if (account >= 300 && account < 500) {
-      performance = 25
+      presentation = 25
     } else {
-      performance = 50
+      presentation = 50
     }
     this.setData({
       account,
