@@ -1,6 +1,5 @@
 .dish-container {
   width: 100vw;
-  padding: 40rpx;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -10,41 +9,67 @@
   transform: translateY(-20rpx);
   position: relative;
   background-color: #fff;
+  padding-top: 20rpx;
+  height: calc(100vh - 380rpx);
+  overflow-x: scroll;
 }
-
-.dish-item {
-  border-radius: 5px;
-  width: 320rpx;
-  margin-bottom: 40rpx;
-  box-shadow: 0 0 5px #999;
-  overflow: hidden;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.dish-left-nav{
+  height: calc(100vh - 380rpx);
+  width: 200rpx;
+  background-color: #ecf0f1;
+}
+.dish-left-nav-item{
+  padding:0 45rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  text-align: center;
   color: #333;
-  padding: 20rpx;
   box-sizing: border-box;
 }
-
-.dish-img {
-  width: 280rpx;
-  height: 280rpx;
-  margin: 0 auto;
+.dish-left-nav .active{
+  color: #f90000;
+  background-color: #fff;
 }
-
-.dish-title {
+.dish-container-list{
+  width: calc(100vw - 200rpx);
+  overflow-x: scroll;
+  height: 100%;
+}
+.dish-container-list-item{
+  box-sizing: border-box;
+  padding: 20rpx;
+  display: flex;
+  position: relative;
+}
+.dish-item-image{
+  width: 200rpx;
+  border-radius: 4px;
+}
+.dish-info{
+  position: relative;
+  margin-left: 20rpx;
+  width: calc(100% - 240rpx);
+}
+.dish-name{
+  font-size: 26rpx;
+}
+.dish-price{
+  position: absolute;
+  bottom: 0;
+  left: 0;
   font-size: 26rpx;
   font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
+  color: #f90000;
 }
-
-.account {
-  font-size: 30rpx;
-  color: #e95a4a;
+.dish-list-add{
+  width: 40rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
-
-.unit {
-  font-size: 30rpx;
-}
-
 .dish_header {
   width: 100vw;
   height: 400rpx;
@@ -96,4 +121,13 @@
   margin-top: 10rpx;
   color: #fff;
   font-size: 26rpx;
+}
+.shop-car{
+  height: 60rpx;
+  width: 100vw;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border: 1px solid #000;
 }

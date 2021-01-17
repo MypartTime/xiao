@@ -1,4 +1,5 @@
 //app.js
+import {evaluate} from 'eval5'
 App({
   onLaunch: function () {
     if (!wx.cloud) {
@@ -58,5 +59,61 @@ App({
   },
   hideLoading(){
     wx.hideLoading()
-  }
+  },
+  getRealJsonData(baseStr) {
+    if (!baseStr || typeof baseStr != 'string') return;
+    var jsonData = null;
+    try {
+      jsonData = JSON.parse(baseStr);
+    } catch (err) {
+      return null;
+    }
+    var needReplaceStrs = [];
+    this.loopFindArrOrObj(jsonData, needReplaceStrs);
+    needReplaceStrs.forEach(function (replaceInfo) {
+      var matchArr = baseStr.match(evaluate('/"' + replaceInfo.key + '":[0-9]{15,}/'));
+      if (matchArr) {
+        var str = matchArr[0];
+        var replaceStr = str.replace('"' + replaceInfo.key + '":', '"' + replaceInfo.key + '":"');
+        replaceStr += '"';
+        baseStr = baseStr.replace(str, replaceStr);
+      }
+    });
+    var returnJson = null;
+    try {
+      returnJson = JSON.parse(baseStr);
+    } catch (err) {
+      return null;
+    }
+    return returnJson;
+  },
+  getNeedRpStrByObj(obj, needReplaceStrs) {
+    for (var key in obj) {
+      var value = obj[key];
+      // 大于这个数说明精度会丢失!
+      if (typeof value == 'number' && value > 9007199254740992) {
+        needReplaceStrs.push({
+          key: key
+        });
+      }
+      this.loopFindArrOrObj(value, needReplaceStrs);
+    }
+  },
+
+  getNeedRpStrByArr(arr, needReplaceStrs) {
+    for (var i = 0; i < arr.length; i++) {
+      var value = arr[i];
+      this.loopFindArrOrObj(value, needReplaceStrs);
+    }
+  },
+
+  loopFindArrOrObj(value, needRpStrArr) {
+    var valueTypeof = Object.prototype.toString.call(value);
+    if (valueTypeof == '[object Object]') {
+      needRpStrArr.concat(this.getNeedRpStrByObj(value, needRpStrArr));
+    }
+    if (valueTypeof == '[object Array]') {
+      needRpStrArr.concat(this.getNeedRpStrByArr(value, needRpStrArr));
+    }
+  },
 })

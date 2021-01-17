@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/pay/pay",
-    "pages/user/user",
-    "pages/login/login",
     "pages/recharge/recharge",
+    "pages/user/user",
+    "pages/pay/pay",
+    "pages/login/login",
     "pages/order/order",
     "pages/record/record",
     "pages/ticket/ticket",

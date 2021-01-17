@@ -64,7 +64,7 @@
   width: 40rpx;
   position: absolute;
   left: 57%;
-  top: 10%;
+  top: 40%;
 }
 .navs{
   padding: 40rpx;
