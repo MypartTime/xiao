@@ -19,8 +19,8 @@ Page({
       customerId: wx.getStorageSync('customerId'),
     })
   },
-  onPullDownRefresh(){
-    wx.showNavigationBarLoading() 
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading()
     this.getUserInfo()
   },
   getUserInfo() {
@@ -70,6 +70,9 @@ Page({
           } else {
             app.showToast('充值会员即可设置支付密码', 'none')
           }
+          break;
+        case '6':
+          app.navigator('/pages/address/address');
           break;
       }
     } else {
