@@ -1,5 +1,7 @@
 //app.js
-import {evaluate} from 'eval5'
+import {
+  evaluate
+} from 'eval5'
 App({
   onLaunch: function () {
     if (!wx.cloud) {
@@ -18,46 +20,46 @@ App({
     this.globalData = {}
   },
 
-  baseUrl:'https://openapi.keruyun.com',//正式环境
+  baseUrl: 'https://openapi.keruyun.com', //正式环境
   // baseUrl:'https://gldopenapi.keruyun.com',//测试环境
-  appKey:"765f3ea41cb8aaf49956105fb1297177",//appKey
-  shopIdenty:"810983262",//门店id
-  shopName:"肖新星（总店）",//门店id
-  version:"1.0",//版本号
-  token:"356f5be13d589e1f3ac5621b5f57f4c8",//token
+  appKey: "765f3ea41cb8aaf49956105fb1297177", //appKey
+  shopIdenty: "810983262", //门店id
+  shopName: "肖新星（总店）", //门店id
+  version: "1.0", //版本号
+  token: "356f5be13d589e1f3ac5621b5f57f4c8", //token
 
-  async getSign(){//获取签名
+  async getSign() { //获取签名
     const that = this
     return await wx.cloud.callFunction({
-      name:"sign",
-      data:{
-        appKey:that.appKey,
-        shopIdenty:that.shopIdenty,
-        version:that.version,
-        token:that.token,
+      name: "sign",
+      data: {
+        appKey: that.appKey,
+        shopIdenty: that.shopIdenty,
+        version: that.version,
+        token: that.token,
       }
     })
   },
-  getPublicKeys(timerstap){//获取公共参数
+  getPublicKeys(timerstap) { //获取公共参数
     return `?appKey=${this.appKey}&shopIdenty=${this.shopIdenty}&version=${this.version}&timestamp=${timerstap}`
   },
-  navigator(url){
+  navigator(url) {
     wx.navigateTo({
       url
     })
   },
-  showToast(title,icon="success"){
+  showToast(title, icon = "success") {
     wx.showToast({
       title,
       icon
     })
   },
-  showLoading(title){
+  showLoading(title) {
     wx.showLoading({
       title,
     })
   },
-  hideLoading(){
+  hideLoading() {
     wx.hideLoading()
   },
   getRealJsonData(baseStr) {
@@ -116,4 +118,33 @@ App({
       needRpStrArr.concat(this.getNeedRpStrByArr(value, needRpStrArr));
     }
   },
+  // 经纬度转换成三角函数中度分表形式。
+  rad(d) {
+    return d * Math.PI / 180.0;
+  },
+
+  // 根据经纬度计算距离，参数分别为第一点的纬度，经度；第二点的纬度，经度
+  getDistance(lat1, lng1, lat2, lng2) {
+    console.log(lat1, lng1, lat2, lng2)
+    var radLat1 = this.rad(lat1);
+    var radLat2 = this.rad(lat2);
+    var a = radLat1 - radLat2;
+    var b = this.rad(lng1) - this.rad(lng2);
+    var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) +
+      Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
+    s = s * 6378.137; // EARTH_RADIUS;
+    s = Math.round(s * 10000) / 10000; //输出为公里
+
+    var distance = s;
+    var distance_str = "";
+
+    if (parseInt(distance) >= 1) {
+      distance_str = distance.toFixed(1) + "km";
+    } else {
+      distance_str = distance * 1000 + "m";
+    }
+
+    //s=s.toFixed(4);
+    return s;
+  }
 })

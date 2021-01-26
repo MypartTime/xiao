@@ -9,7 +9,9 @@
 button {
   background: initial;
 }
-
+image {
+  height:auto;
+}
 button:focus{
   outline: 0;
 }

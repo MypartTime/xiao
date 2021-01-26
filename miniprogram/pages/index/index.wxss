@@ -1,9 +1,10 @@
+.dish-box-container{
+  height: 100vh;
+  overflow-y: hidden;
+}
 .dish-container {
   width: 100vw;
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   margin-top: 400rpx;
   border-radius: 10px 10px 0 0;
   transform: translateY(-20rpx);
@@ -11,12 +12,15 @@
   background-color: #fff;
   padding-top: 20rpx;
   height: calc(100vh - 380rpx);
-  overflow-x: scroll;
+  overflow-y: hidden;
 }
 .dish-left-nav{
-  height: calc(100vh - 380rpx);
+  height: 100%;
   width: 200rpx;
-  background-color: #ecf0f1;
+  background-color: #f3f4f5;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .dish-left-nav-item{
   padding:0 45rpx;
@@ -34,8 +38,11 @@
   background-color: #fff;
 }
 .dish-container-list{
+  position: absolute;
+  right: 0;
+  top: 0;
   width: calc(100vw - 200rpx);
-  overflow-x: scroll;
+  overflow-y: scroll;
   height: 100%;
 }
 .dish-container-list-item{
@@ -43,6 +50,9 @@
   padding: 20rpx;
   display: flex;
   position: relative;
+}
+.dish-container-list-item:nth-last-of-type(1){
+  margin-bottom: 100rpx;
 }
 .dish-item-image{
   width: 200rpx;
@@ -56,6 +66,12 @@
 .dish-name{
   font-size: 26rpx;
 }
+.tags text{
+  font-size: 22rpx;
+  color: #f90000;
+  background-color: #eee;
+  padding: 2rpx 10rpx;
+}
 .dish-price{
   position: absolute;
   bottom: 0;
@@ -64,11 +80,19 @@
   font-weight: bold;
   color: #f90000;
 }
-.dish-list-add{
-  width: 40rpx;
+.dish-control{
   position: absolute;
   right: 0;
   bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.dish-list-add{
+  width: 40rpx;
+}
+.dish-num{
+  margin: 0 10rpx;
+  font-size: 26rpx;
 }
 .dish_header {
   width: 100vw;
@@ -123,11 +147,83 @@
   font-size: 26rpx;
 }
 .shop-car{
-  height: 60rpx;
+  padding: 20rpx 40rpx;
+  height: 100rpx;
   width: 100vw;
   box-sizing: border-box;
   position: fixed;
   left: 0;
   bottom: 0;
-  border: 1px solid #000;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: -5px -5px 10px #eee;
+  z-index: 101;
+}
+.shop-car-price{
+  display: inline-block;
+}
+.shop-car-price{
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  display: inline-block;
+}
+.pay-button{
+  width: 200rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+  line-height: 60rpx;
+  background-color: #bdc3c7;
+  font-size: 24rpx;
+  margin: 0;
+}
+.shop-car-container{
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.shop-car-item{
+  position: relative;
+  height: 150rpx;
+  padding: 25rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+.shop-car-item-img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 4px;
+}
+.shop-car-item-info{
+  height: 100rpx;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20rpx;
+}
+.shop-car-item-info view:nth-of-type(1){
+  font-size: 26rpx;
+  color: #333;
+}
+.shop-car-item-info view:nth-of-type(2){
+  font-size: 24rpx;
+  color: #333;
+}
+.shop-car-item-info view:nth-of-type(3){
+  font-size: 22rpx;
+  color: #f90000;
+  position: absolute;
+  bottom: 0;
+}
+.shop-car-item-control{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.active-button{
+  background-color: #f90000;
+  color: #fff;
 }
