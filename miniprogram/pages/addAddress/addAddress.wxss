@@ -1,0 +1,79 @@
+.add-address-container {
+  padding: 40rpx;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #eee;
+}
+
+.add-address-container>view {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 40rpx;
+}
+
+.choose-address {
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 80rpx;
+  color: #e67e22;
+  border: 1px solid #e67e22;
+}
+
+.add-address-form-item {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  line-height: 100rpx;
+}
+
+.add-address-form-item text {
+  width: 20%;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.add-address-form-item input {
+  width: 80%;
+  font-size: 26rpx;
+  height: 80rpx;
+  margin-left: 20rpx;
+  border-bottom: 1px solid #bdc3c7;
+}
+
+.add-button {
+  margin-top: 20rpx;
+  width: 100%;
+  font-size: 26rpx;
+  background-color: #e67e22;
+  color: #636e72;
+}
+
+.choosed-address {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #bdc3c7;
+}
+
+.detail-address-address {
+  font-size: 24rpx;
+  color: #333;
+}
+
+.detail-address {
+  width: 80%;
+  font-size: 26rpx;
+}
+
+.rechoose {
+  width: 20%;
+  line-height: 40rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  border-radius: 4px;
+  border: 1px solid #e67e22;
+  color: #e67e22;
+  text-align: center;
+}

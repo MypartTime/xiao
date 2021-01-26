@@ -1,0 +1,27 @@
+<view class="add-address-container">
+  <view>
+    <view wx:if="{{addressName == '' && addressDetail == ''}}" class="choose-address" bindtap="chooseAddress">选择收货地址 ></view>
+    <view wx:if="{{addressName != '' && addressDetail != ''}}" class="choosed-address">
+      <view class="detail-address">
+        <view class="detail-address-name">{{addressName}}</view>
+        <view class="detail-address-address">{{addressDetail}}</view>
+      </view>
+      <view class="rechoose" bindtap="chooseAddress">修改地址</view>
+    </view>
+    <form bindsubmit="handleAddAddress">
+      <view class="add-address-form-item">
+        <text>门牌号</text>
+        <input value="{{address}}" name='address' type="text" placeholder="详细地址，例如1楼101" />
+      </view>
+      <view class="add-address-form-item">
+        <text>联系人</text>
+        <input value="{{customerName}}" name='customerName' type="text" placeholder="请填写收货人的姓名" />
+      </view>
+      <view class="add-address-form-item">
+        <text>手机号</text>
+        <input value="{{tel}}" name='tel' type="text" placeholder="请填写收货手机号码" />
+      </view>
+      <button form-type='submit' class="add-button">保存地址</button>
+    </form>
+  </view>
+</view>

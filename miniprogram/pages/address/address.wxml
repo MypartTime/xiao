@@ -1,0 +1,31 @@
+<view class="address-container">
+  <view class="address-list">
+    <view class="address-item" wx:for="{{addressList}}" wx:key="index">
+      <view class="address-item-name">
+        {{item.user_name}}
+      </view>
+      <view class="address-item-tel">
+        {{item.mobile}}
+      </view>
+      <view class="address-item-address">
+        <text>{{item.addressDetail}}</text>
+        <text>{{item.address_name}}</text>
+        <text>{{item.address}}</text>
+      </view>
+      <view class="address-btns">
+        <text class="{{item.isdefault?'default-address':''}}" data-i="1" data-item="{{item}}"
+          bindtap="handleAddress">{{item.isdefault?'默认地址':'设为默认'}}</text>
+        <view>
+          <text data-i="2" data-item="{{item}}"  bindtap="handleAddress" class="address-btns-edit">编辑</text>
+          <text data-i="3" data-item="{{item}}" bindtap="handleAddress" class="address-btns-delete">删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <image src="/images/404.png" wx:if="{{addressList.length == 0}}" class="notfound" mode="aspectFit"></image>
+  <navigator url="/pages/addAddress/addAddress?type=1">
+    <view class="address-control">
+      <view>添加地址</view>
+    </view>
+  </navigator>
+</view>

@@ -1,0 +1,55 @@
+
+.address-control{
+  position: fixed;
+  width: 100vw;
+  height: 120rpx;
+  bottom: 0;
+  background-color: #f90000;
+}
+.address-control view{
+  color: #ffffff;
+  line-height: 120rpx;
+  text-align: center;
+}
+.address-list{
+  padding: 0 40rpx;
+}
+.address-item{
+  background-color: #fff;
+  padding: 20rpx;
+  border-bottom: 1px solid #bdc3c7;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+.address-item-name{
+  width: 100rpx;
+  display: inline-block;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+.address-item-tel{
+  display: inline-block;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+.address-item-address text{
+  font-size: 26rpx;
+  margin-right: 20rpx;
+}
+.address-btns{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+.address-btns-edit{
+  margin-right: 20rpx;
+}
+.notfound{
+  width: 80vw;
+  display: block;
+  margin: 0 auto;
+}
+.default-address{
+  color: #f90000;
+}
