@@ -10,7 +10,7 @@ Page({
     totalNum: 0,
     totalPrice: 0,
     shopCarDishList: {}, //购物车里的商品
-    showShopCar:false,//是否显示购物车
+    showShopCar: false, //是否显示购物车
     tapClose: true,
 
   },
@@ -116,7 +116,7 @@ Page({
               totalPrice = 0
             let list = that.data.dishList
             list.forEach(el => {
-              if(el.totalNum){
+              if (el.totalNum) {
                 el.totalNum = null
               }
             })
@@ -141,6 +141,7 @@ Page({
         }
       })
   },
+  //商品列表操纵购物车
   handleCarDish(e) {
     const that = this
     let i = e.currentTarget.dataset.i
@@ -178,7 +179,7 @@ Page({
       } else {
         if (item.totalNum) {
           shopcarlist.data.forEach(el => {
-            if(el.id == item.brandDishId){
+            if (el.id == item.brandDishId) {
               el.totalNum++
             }
           })
@@ -203,15 +204,15 @@ Page({
       }
     } else {
       if (item.totalNum == 1) {
-        shopcarlist.data.forEach((el,i) => {
-          if(el.id == item.brandDishId){
-            shopcarlist.data.splice(i,1)
+        shopcarlist.data.forEach((el, i) => {
+          if (el.id == item.brandDishId) {
+            shopcarlist.data.splice(i, 1)
           }
         })
       } else {
         shopcarlist.data.forEach(el => {
-          if(el.id == item.brandDishId){
-            el.totalNum --
+          if (el.id == item.brandDishId) {
+            el.totalNum--
           }
         })
       }
@@ -225,16 +226,51 @@ Page({
       })
     }
   },
+  //购物车列表操作购物车
+  handleShopCar(e) {
+    let item = e.currentTarget.dataset.item
+    let i = e.currentTarget.dataset.i
+    let shopCarList = this.data.shopCarDishList
+    const that = this
+    const db = wx.cloud.database()
+    if (i == 1) {
+      shopCarList.data.forEach(el => {
+        if (el.id == item.id) {
+          el.totalNum++
+        }
+      })
+    } else if (i == -1 && item.totalNum == 1) {
+      shopCarList.data.forEach((el, i) => {
+        if (el.id == item.id) {
+          shopCarList.data.splice(i, 1)
+        }
+      })
+    } else if (i == -1 && item.totalNum != 1) {
+      shopCarList.data.forEach((el, i) => {
+        if (el.id == item.id) {
+          el.totalNum--
+        }
+      })
+    }
+    db.collection("customer_shopcar").doc(shopCarList._id).update({
+      data: {
+        data: shopCarList.data
+      },
+      success: function (res) {
+        that.getShopCarGoods()
+      }
+    })
+  },
   onClose() {
     this.setData({
       showShopCar: false
     })
   },
-  handleShowShopCar(){
+  handleShowShopCar() {
     let bool = this.data.showShopCar
-    if(this.data.shopCarDishList.data.length != 0){
+    if (this.data.shopCarDishList.data.length != 0) {
       this.setData({
-        showShopCar:!bool
+        showShopCar: !bool
       })
     }
   },

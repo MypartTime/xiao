@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/shopCar/shopCar",
     "pages/index/index",
     "pages/pay/pay",
     "pages/user/user",
@@ -46,6 +47,7 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-popup": "@vant/weapp/popup/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
   }
 }

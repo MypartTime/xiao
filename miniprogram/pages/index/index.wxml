@@ -64,7 +64,7 @@
   <button class="{{totalNum?'active-button pay-button':'pay-button'}}">去结算</button>
 </view>
 <van-popup show="{{ showShopCar }}" position="bottom"
-  custom-style="{{'height:'+shopCarDishList.data.length* 200 +'rpx'}}" close-on-click-overlay="{{tapClose}}"
+  custom-style="min-height:500rpx;max-height:800rpx" close-on-click-overlay="{{tapClose}}"
    bind:close="onClose" round="{{true}}">
   <view class="shop-car-container">
     <view class="shop-car-item" wx:for="{{shopCarDishList.data}}" wx:key="index">
@@ -78,10 +78,10 @@
       </view>
       <view class="shop-car-item-control">
         <!-- 减去 -->
-        <image src="/images/minus.png" mode="widthFix" class="dish-list-add"></image>
+        <image src="/images/minus.png" data-item="{{item}}" data-i="-1" bindtap="handleShopCar" mode="widthFix" class="dish-list-add"></image>
         <text class="dish-num">{{item.totalNum}}</text>
         <!-- 加上 -->
-        <image src="/images/add.png" mode="widthFix" class="dish-list-add"></image>
+        <image src="/images/add.png" data-item="{{item}}" data-i="1" bindtap="handleShopCar" mode="widthFix" class="dish-list-add"></image>
       </view>
     </view>
   </view>

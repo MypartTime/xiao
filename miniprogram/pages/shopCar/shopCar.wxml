@@ -1,0 +1,42 @@
+<view class="shop-car-container">
+  <!-- 地址 -->
+  <view class="shop-car-address-container">
+    <view class="shop-car-address-detail">
+      <text>{{defaultAddress.address_name}}</text>
+      <text>{{defaultAddress.addressDetail}}</text>
+    </view>
+    <view class="shop-car-address-userinfo">
+      <text>{{defaultAddress.user_name}}</text>
+      <text>{{defaultAddress.mobile}}</text>
+      <image src="/images/arrow_down.png" class="shop-car-address-arrow" mode="widthFix"></image>
+    </view>
+  </view>
+  <!-- 支付 -->
+  <view class="shop-car-payment" bindtap="changePayMethod">
+    <view>支付</view>
+    <view>{{paymethodName}}<image src="/images/arrow_down.png" class="shop-car-payment-arrow" mode="widthFix"></image></view>
+  </view>
+  <!-- 菜品 -->
+  <view class="shop-car-dish-list">
+    <view class="shop-car-dish-item" wx:for="{{shopCarList.data}}" wx:key="index">
+      <image src="{{item.dishImgUrl}}" class="shop-car-dish-img" mode="aspectFill"></image>
+      <view class="shop-car-dish-info">
+        <view class="shop-car-dish-title">{{item.name}}</view>
+        <view class="shop-car-dish-num">x{{item.totalNum}}</view>
+        <view class="shop-car-dish-price">￥{{item.price * item .totalNum}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<van-action-sheet
+  show="{{ showPaymethods }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:cancel="onClose"
+  bind:select="onSelect"
+  cancel-text="取消"
+  close-on-click-overlay="{{true}}"
+/>
+

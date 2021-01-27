@@ -179,8 +179,7 @@
   margin: 0;
 }
 .shop-car-container{
-  padding: 40rpx;
-  box-sizing: border-box;
+  padding: 40rpx 40rpx 120rpx;
 }
 .shop-car-item{
   position: relative;

@@ -1,0 +1,97 @@
+.shop-car-container{
+  padding: 0 40rpx;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+.shop-car-address-container{
+  position: relative;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px #eee;
+}
+.shop-car-address-detail{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.shop-car-address-detail text:nth-last-of-type(1){
+  margin-left: 10rpx;
+}
+.shop-car-address-userinfo{
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #999;
+}
+.shop-car-address-userinfo text:nth-last-of-type(1){
+  margin-left: 20rpx;
+}
+.shop-car-address-arrow{
+  width: 60rpx;
+  position: absolute;
+  right: 0;
+  top: calc(50% - 30rpx);
+}
+.shop-car-payment{
+  background-color: #fff;
+  box-shadow: 5px 5px 10px #eee;
+  height: 100rpx;
+  display: flex;
+  margin: 20rpx 0;
+  border-radius: 10rpx;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx;
+  font-size: 26rpx;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+.shop-car-payment-arrow{
+  width: 40rpx;
+  vertical-align: top;
+}
+.shop-car-dish-list{
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px #eee;
+}
+.shop-car-dish-item{
+  margin-top: 10rpx;
+  display: flex;
+  height: 120rpx;
+  box-sizing: border-box;
+  padding-bottom: 20rpx ;
+  border-bottom: 1px solid #eee;
+}
+.shop-car-dish-img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+.shop-car-dish-info{
+  height: 100%;
+  position: relative;
+  margin-left: 20rpx;
+  width: calc(100% - 120rpx);
+}
+.shop-car-dish-title{
+  font-size: 26rpx;
+  color: #333333;
+}
+.shop-car-dish-num{
+  font-size: 22rpx;
+  color: #666;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.shop-car-dish-price{
+  font-size: 24rpx;
+  color: #333;
+  position: absolute;
+  right: 0;
+  top: calc(50% - 12px);
+}
