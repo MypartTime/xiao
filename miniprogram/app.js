@@ -24,7 +24,7 @@ App({
   // baseUrl:'https://gldopenapi.keruyun.com',//测试环境
   appKey: "765f3ea41cb8aaf49956105fb1297177", //appKey
   shopIdenty: "810983262", //门店id
-  shopName: "肖新星（总店）", //门店id
+  shopName: "肖新星（总店）", //门店
   version: "1.0", //版本号
   token: "356f5be13d589e1f3ac5621b5f57f4c8", //token
 

@@ -1,6 +1,6 @@
 <view class="shop-car-container">
   <!-- 地址 -->
-  <view class="shop-car-address-container">
+  <view class="shop-car-address-container" bindtap="handleAddress">
     <view class="shop-car-address-detail">
       <text>{{defaultAddress.address_name}}</text>
       <text>{{defaultAddress.addressDetail}}</text>
@@ -14,7 +14,8 @@
   <!-- 支付 -->
   <view class="shop-car-payment" bindtap="changePayMethod">
     <view>支付</view>
-    <view>{{paymethodName}}<image src="/images/arrow_down.png" class="shop-car-payment-arrow" mode="widthFix"></image></view>
+    <view>{{paymethodName}}<image src="/images/arrow_down.png" class="shop-car-payment-arrow" mode="widthFix"></image>
+    </view>
   </view>
   <!-- 菜品 -->
   <view class="shop-car-dish-list">
@@ -26,17 +27,26 @@
         <view class="shop-car-dish-price">￥{{item.price * item .totalNum}}</view>
       </view>
     </view>
+    <!-- 其余费用 -->
+    <view class="other-fee">
+      <view class="package-fee">
+        <text>打包费</text>
+        <text>￥10</text>
+      </view>
+      <view class="send-fee">
+        <text>配送费</text>
+        <text>￥5</text>
+      </view>
+    </view>
+    <!-- 总价格 -->
+    <view class="shop-car-dish-total-price">￥{{totalPrice}}</view>
   </view>
 </view>
 
 
-<van-action-sheet
-  show="{{ showPaymethods }}"
-  actions="{{ actions }}"
-  bind:close="onClose"
-  bind:cancel="onClose"
-  bind:select="onSelect"
-  cancel-text="取消"
-  close-on-click-overlay="{{true}}"
-/>
+<view class="shop-car-pay" bindtap="createOrder">提交订单</view>
+<van-action-sheet show="{{ showPaymethods }}" actions="{{ actions }}" bind:close="onClose" bind:cancel="onClose"
+  bind:select="onSelect" cancel-text="取消" close-on-click-overlay="{{true}}" />
 
+<van-action-sheet show="{{ addressShow }}" actions="{{ addressList }}" bind:close="addressClose"
+  bind:cancel="addressClose" bind:select="addressSelect" cancel-text="取消" close-on-click-overlay="{{true}}" />
