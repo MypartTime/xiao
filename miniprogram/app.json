@@ -1,17 +1,17 @@
 {
   "pages": [
+    "pages/order/order",
     "pages/shopCar/shopCar",
     "pages/index/index",
-    "pages/pay/pay",
     "pages/user/user",
+    "pages/changePwd/changePwd",
     "pages/address/address",
+    "pages/pay/pay",
     "pages/addAddress/addAddress",
     "pages/recharge/recharge",
     "pages/login/login",
-    "pages/order/order",
     "pages/record/record",
     "pages/ticket/ticket",
-    "pages/changePwd/changePwd",
     "pages/purse/purse",
     "pages/userinfo/userinfo"
   ],
@@ -48,6 +48,7 @@
   "usingComponents": {
     "van-popup": "@vant/weapp/popup/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-action-sheet": "@vant/weapp/action-sheet/index"
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-overlay": "@vant/weapp/overlay/index"
   }
 }

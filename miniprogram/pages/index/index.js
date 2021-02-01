@@ -134,7 +134,7 @@ Page({
             that.setData({
               dishList: list,
               totalNum,
-              totalPrice,
+              totalPrice:totalPrice.toFixed(2),
               shopCarDishList: res.data[0]
             })
           }

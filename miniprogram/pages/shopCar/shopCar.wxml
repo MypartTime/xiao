@@ -1,6 +1,6 @@
 <view class="shop-car-container">
   <!-- 地址 -->
-  <view class="shop-car-address-container" bindtap="handleAddress">
+  <view class="shop-car-address-container" wx:if="{{addressList.length!=0}}" bindtap="handleAddress">
     <view class="shop-car-address-detail">
       <text>{{defaultAddress.address_name}}</text>
       <text>{{defaultAddress.addressDetail}}</text>
@@ -10,6 +10,14 @@
       <text>{{defaultAddress.mobile}}</text>
       <image src="/images/arrow_down.png" class="shop-car-address-arrow" mode="widthFix"></image>
     </view>
+  </view>
+  <view class="shop-car-address-container" wx:if="{{addressList.length==0}}">
+    <navigator url="/pages/addAddress/addAddress?type=1">
+      <view class="shop-car-add-address-container">
+        <image src="/images/shop-car-add-address.png" mode="widthFix" class="shop-car-add-address-pic"></image>
+        <text class="add-address">添加地址</text>
+      </view>
+    </navigator>
   </view>
   <!-- 支付 -->
   <view class="shop-car-payment" bindtap="changePayMethod">
@@ -31,22 +39,38 @@
     <view class="other-fee">
       <view class="package-fee">
         <text>打包费</text>
-        <text>￥10</text>
+        <view>
+          <text>￥{{totalNum}}</text>
+          <text>￥0</text>
+        </view>
       </view>
       <view class="send-fee">
         <text>配送费</text>
-        <text>￥5</text>
+        <view>
+          <text>￥8</text>
+          <text>￥5</text>
+        </view>
       </view>
     </view>
     <!-- 总价格 -->
-    <view class="shop-car-dish-total-price">￥{{totalPrice}}</view>
+    <view class="shop-car-dish-total-price">￥{{totalPrice * 1 + 5 * 1}}</view>
   </view>
 </view>
 
 
-<view class="shop-car-pay" bindtap="createOrder">提交订单</view>
+<view class="shop-car-pay" bindtap="handleOrder">提交订单</view>
 <van-action-sheet show="{{ showPaymethods }}" actions="{{ actions }}" bind:close="onClose" bind:cancel="onClose"
   bind:select="onSelect" cancel-text="取消" close-on-click-overlay="{{true}}" />
 
 <van-action-sheet show="{{ addressShow }}" actions="{{ addressList }}" bind:close="addressClose"
   bind:cancel="addressClose" bind:select="addressSelect" cancel-text="取消" close-on-click-overlay="{{true}}" />
+
+
+  <van-overlay show="{{ showPwd }}">
+    <view class="shop-car-pwd-container">
+      <image src="/images/multiply.png" class="shop-car-pwd-close" bindtap="closePwd" mode="widthFix"></image>
+      <view class="shop-car-pwd-title">请输入支付密码</view>
+      <view class="shop-car-pwd-price">￥{{totalPrice * 1 + 5 * 1}}</view>
+      <input  type="number" focus="{{isFocus}}"  password="{{true}}" maxlength="6" value="{{pwd}}" bindinput="inputPwd" bindfocus="handleInputClear"  />
+    </view>
+  </van-overlay>

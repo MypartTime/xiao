@@ -58,7 +58,7 @@
       info='{{totalNum}}' size='30px' />
     <view class="shop-car-price">
       <view>￥{{totalPrice}}</view>
-      <view>另需配送费￥1.5</view>
+      <view>另需配送费￥5</view>
     </view>
   </view>
   <button class="{{totalNum?'active-button pay-button':'pay-button'}}">去结算</button>

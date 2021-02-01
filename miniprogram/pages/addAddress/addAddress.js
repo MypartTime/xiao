@@ -10,6 +10,7 @@ Page({
     addressDetail: '',
     addLatitude: '',
     addLongitude: '',
+    distance:'',//距离
     id: '',
     type: ''
   },
@@ -47,8 +48,9 @@ Page({
     wx.chooseLocation({
       success(res) {
         if (res.address && res.name) {
-          let s = app.getDistance(that.data.Latitude, that.data.longitude, res.latitude, res.longitude)
-          if (s > 5) {
+          let s = (app.getDistance(that.data.Latitude, that.data.longitude, res.latitude, res.longitude)).toFixed(2)
+          console.log(s)
+          if (s > 2) {
             wx.showModal({
               title: '提示',
               content: '该距离超出配送范围，请重新选择',
@@ -59,7 +61,8 @@ Page({
               addressName: res.name,
               addressDetail: res.address,
               addLatitude: res.latitude,
-              addLongitude: res.longitude
+              addLongitude: res.longitude,
+              distancee:s
             })
           }
         }
@@ -105,6 +108,7 @@ Page({
           mobile: tel,
           latitude: this.data.addLatitude,
           longitude: this.data.addLongitude,
+          distance:this.data.distance,
           isdefault: false
         }
       }).then(res => {

@@ -258,7 +258,7 @@ Page({
                 account:that.data.account,
                 level:that.data.userInfo.level,
                 payment:type == 1 ? '余额支付' : '微信支付',
-                overage:(that.data.vipAccount - that.data.account).toFixed(2),
+                overage:type == 1 ?(that.data.vipAccount - that.data.account).toFixed(2):that.data.vipAccount,
                 orderId:result.data.result.orderId,
                 tradeId:result.data.result.tradeId,
               }

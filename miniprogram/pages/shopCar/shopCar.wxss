@@ -33,6 +33,22 @@
   right: 0;
   top: calc(50% - 30rpx);
 }
+.shop-car-add-address-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-address{
+  font-size: 26rpx;
+  text-align: center;
+  color: #333;
+  margin: 20rpx 0;
+  margin-left: 20rpx;
+}
+.shop-car-add-address-pic{
+  width: 40rpx;
+  
+}
 .shop-car-payment{
   background-color: #fff;
   box-shadow: 5px 5px 10px #eee;
@@ -103,6 +119,16 @@
   display: flex;
   justify-content: space-between;
 }
+.package-fee view text:nth-of-type(1),
+.send-fee view text:nth-of-type(1){
+  text-decoration:line-through;
+  color: #999;
+  margin-right: 10rpx;
+}
+.package-fee view text:nth-of-type(2),
+.send-fee view text:nth-of-type(2){
+  font-size: 26rpx;
+}
 .send-fee{
   padding-bottom: 20rpx;
   border-bottom: 1px solid #eee;
@@ -124,4 +150,40 @@
   font-size: 26rpx;
   color: #fff;
   background-color: #f90000;
+}
+.shop-car-pwd-container{
+  width: 600rpx;
+  height: 300rpx;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: calc(50% - 200rpx);
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.shop-car-pwd-title{
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+.shop-car-pwd-price{
+  text-align: center;
+  font-size: 60rpx;
+  line-height: 80rpx;
+}
+.shop-car-pwd-container input {
+  border: 1px solid #eee;
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.shop-car-pwd-close{
+  width: 50rpx;
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
 }

@@ -35,3 +35,9 @@
  line-height: 40rpx;
  color: #718093;
 }
+.changepwd-btn{
+  width: 300rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  margin: 0 auto ;
+}

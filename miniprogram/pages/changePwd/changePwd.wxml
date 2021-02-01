@@ -19,7 +19,7 @@
       <text>注:初始密码为123456，如您遗忘支付密码，请联系店员重置密码</text>
     </view>
     <view class="change_pwd_container_controls">
-      <button form-type="submit" type="primary">修改密码</button>
+      <button form-type="submit" type="primary" class="changepwd-btn">修改密码</button>
     </view>
   </form>
 </view>
