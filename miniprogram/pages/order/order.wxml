@@ -6,6 +6,8 @@
     <view class="order_container_item_time">消费金额：{{item.account}}元</view>
     <view class="order_container_item_time">支付方式：{{item.payment}}</view>
     <view wx:if="{{item.level}}" class="order_container_item_time">会员余额：{{item.overage}}元</view>
+    <view class="order_container_item_tag">{{item.isTakeaway?'外卖订单':'堂食订单'}}</view>
+    <image src="/images/arrow_down.png" class="order-arrow" mode="widthFix"></image>
   </view>
 </view>
 <image src="/images/404.png" wx:if="{{list.length == 0}}" class="notfound" mode="aspectFit"></image>

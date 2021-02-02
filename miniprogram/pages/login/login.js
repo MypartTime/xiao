@@ -104,7 +104,6 @@ Page({
           loginType: '0',
           name: that.data.name,
           sex: that.data.sex,
-          memo:'123456',
           wxIconUrl: that.data.avatar
         },
         success(res) {

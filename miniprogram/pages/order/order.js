@@ -22,7 +22,7 @@ Page({
         console.log(res)
         if (res.errMsg == 'collection.get:ok') {
           that.setData({
-            list: res.data
+            list: res.data.reverse()
           })
         }
       }

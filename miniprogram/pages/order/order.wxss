@@ -8,10 +8,26 @@
   margin: 20rpx 0;
   box-shadow: 0 0 10px #bdc3c7;
   color: #333333;
+  position: relative;
 }
 .order_container_item_time{
   font-size: 26rpx;
   margin-top: 10rpx;
+}
+.order_container_item_tag{
+  position: absolute;
+  padding: 5rpx 10rpx;
+  right: 0;
+  top: 0;
+  font-size: 24rpx;
+  background-color: #d35400;
+  color: #fff;
+}
+.order-arrow{
+  width: 100rpx;
+  position: absolute;
+  right: 20rpx;
+  top:calc(50% - 50rpx)
 }
 .notfound{
   width: 80vw;

@@ -274,4 +274,9 @@ Page({
       })
     }
   },
+  handleSettle(){
+    if(this.data.totalPrice > 38){
+      app.navigator('/pages/shopCar/shopCar')
+    }
+  },
 })

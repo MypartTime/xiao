@@ -1,0 +1,19 @@
+<view class="home-container">
+  <view class="home-header">
+    <view class="home-header-title">肖新星卤坊</view>
+    <view class="home-header-address">
+      <text>地址：</text>
+      <view>
+        <view>肖新星（总店）:重庆市璧山区壁城街道新生街52号</view>
+        <view>肖新星北街店 :重庆市璧山区壁铜路118号</view>
+      </view>
+    </view>
+    <view class="home-header-tel">联系电话：159-9890-8949</view>
+  </view>
+  <view class="home-controls">
+    <view data-title="{{item.title}}" bindtap="handleNav" class="home-controls-item" wx:for="{{navList}}" wx:key="index">
+      <image data-title="{{item.title}}" src="{{item.imgUrl}}" mode="widthFix"></image>
+      <view data-title="{{item.title}}">{{item.title}}</view>
+    </view>
+  </view>
+</view>

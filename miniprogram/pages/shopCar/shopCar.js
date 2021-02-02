@@ -213,7 +213,7 @@ Page({
     }
     let payment = {
       memberId: wx.getStorageSync('customerId'),
-      memberPassword: this.data.paymethodName == '余额支付'?md5(this.data.userInfo.memo):'',
+      memberPassword: this.data.paymethodName == '余额支付' ? md5(this.data.userInfo.memo) : '',
       totalFee: that.accMul(this.data.totalPrice, 100) + 500, //订单总价，订单总价=商品总金额+餐盒费+配送费，单位：分
       deliveryFee: 500, //配送费
       packageFee: 0, //餐盒费
@@ -224,7 +224,7 @@ Page({
       userFee: that.accMul(this.data.totalPrice, 100) + 500, //用户实付总价
       serviceFee: 0,
       subsidies: 0,
-      payType: 2,
+      payType: this.data.paymethodName == '余额支付' ? 3 : 2,
     }
     // return
     app.getSign().then(res => {
@@ -255,28 +255,39 @@ Page({
             wx.showModal({
               title: '提示',
               content: '订单提交成功，请等待送达',
-              showCancel: false
+              showCancel: false,
+              success() {
+                wx.navigateBack({
+                  delta: 1,
+                })
+              }
             })
             const db = wx.cloud.database()
             db.collection('customer_order').add({
               data: {
                 name: that.data.userInfo.customerName,
                 mobile: wx.getStorageSync('mobile'),
-                create_time: new Date().toDateString(),
+                create_time: new Date().toLocaleString(),
                 account: that.data.totalPrice * 1 + 5 * 1,
                 level: that.data.userInfo.level,
                 payment: that.data.paymethodName,
                 overage: that.data.paymethodName == '微信支付' ? that.data.userInfo.remainValue : (that.data.userInfo.remainValue - that.data.totalPrice - 5).toFixed(2),
                 orderId: result.data.result.orderId,
                 tradeId: result.data.result.tradeId,
+                isTakeaway: true,
+                dishes:JSON.stringify(that.data.shopCarList.data)
               }
             }).then(res => {
-              console.log(res)
+              db.collection('customer_shopcar').doc(that.data.shopCarList._id).remove({
+                success(res){
+                  console.log(res)
+                }
+              })
             })
           } else {
             wx.showModal({
               title: '提示',
-              content: res.data.message,
+              content: result.data.message,
               showCancel: false
             })
           }
@@ -304,11 +315,11 @@ Page({
       console.log('密码正确，余额支付')
       app.showLoading('')
       this.setData({
-        showPwd:false
+        showPwd: false
       })
       this.createOrder()
-    }else if(pwd.length == 6 && this.data.userInfo.memo != pwd){
-      app.showToast('密码错误，请重试','none')
+    } else if (pwd.length == 6 && this.data.userInfo.memo != pwd) {
+      app.showToast('密码错误，请重试', 'none')
     }
   },
   handleInputClear() {

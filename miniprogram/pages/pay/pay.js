@@ -254,7 +254,7 @@ Page({
               data:{
                 name:that.data.userInfo.customerName,
                 mobile:wx.getStorageSync('mobile'),
-                create_time:new Date().toDateString(),
+                create_time:new Date().toLocaleString(),
                 account:that.data.account,
                 level:that.data.userInfo.level,
                 payment:type == 1 ? '余额支付' : '微信支付',
