@@ -1,0 +1,142 @@
+.order-detail-container{
+  padding: 0 20rpx;
+}
+.order-dish-list{
+  padding: 20rpx 40rpx;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.order-detail-dish-item{
+  display: flex;
+  height: 120rpx;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #f7f7f7;
+}
+.order-detail-dish-item image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 4px;
+}
+.order-detail-dish-info{
+  margin-left: 20rpx;
+  position: relative;
+  height: 100rpx;
+  width: calc(100% - 120rpx);
+}
+.order-detail-dish-name{
+  font-size: 26rpx;
+  color: #333;
+}
+.order-detail-dish-num{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 24rpx;
+  color: #666;
+}
+.order-detail-dish-price{
+  font-size: 26rpx;
+  color: #666;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+.package-price,.send-price{
+  font-size: 24rpx;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #f7f7f7;
+  color: #333;
+}
+.package-price text:nth-of-type(2), 
+.send-price text:nth-of-type(2){
+  float: right;
+} 
+.package-price text:nth-of-type(3), 
+.send-price text:nth-of-type(3){
+  text-decoration: line-through;
+  margin-right: 10rpx;
+  float: right;
+} 
+.order-detail-dish-total-price{
+  text-align: right;
+  padding: 10rpx 0;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.order-detail-address{
+  padding: 20rpx 40rpx;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 20rpx;
+}
+.order-detail-address-title{
+  font-size: 28rpx;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #eee;
+
+}
+.order-detail-address-address{
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+}
+.order-detail-address-address > view:nth-of-type(1){
+  color: #666;
+}
+.order-detail-address-user{
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.order-detail-address-user > view:nth-of-type(1){
+  color: #666;
+}
+.order-detail-call{
+  display: flex;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #333;
+  padding: 20rpx 0 ;
+  border-radius: 0 0 5px 5px ;
+  background-color: #fff;
+  border-top: 1px solid #bdc3c7;
+}
+.order-detail-call image{
+  width: 30rpx;
+}
+.order-detail-order-info{
+  padding: 20rpx 40rpx;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 20rpx;
+}
+.order-detail-order-info-title{
+  font-size: 28rpx;
+  padding: 10rpx 0;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 1px solid #eee;
+}
+.order-detail-order-info-item{
+  display: flex;
+  font-size: 24rpx;
+  color: #333;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+.order-detail-order-info-item > view:nth-of-type(1){
+  color: #666;
+}
+.order-detail-state{
+  position: fixed;
+  width: 100vw;
+  height: 60rpx;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}

@@ -74,6 +74,9 @@ Page({
         case '6':
           app.navigator('/pages/address/address');
           break;
+        // case '7':
+        //   app.navigator('/pages/address/address');
+        //   break;
       }
     } else {
       app.showToast('请先登录', 'error')

@@ -275,7 +275,8 @@ Page({
                 orderId: result.data.result.orderId,
                 tradeId: result.data.result.tradeId,
                 isTakeaway: true,
-                dishes:JSON.stringify(that.data.shopCarList.data)
+                dishes:JSON.stringify(that.data.shopCarList.data),
+                address:that.data.defaultAddress
               }
             }).then(res => {
               db.collection('customer_shopcar').doc(that.data.shopCarList._id).remove({
@@ -310,16 +311,9 @@ Page({
   //控制密码输入
   inputPwd(e) {
     let pwd = e.detail.value
-    console.log(pwd)
-    if (pwd.length == 6 && this.data.userInfo.memo == pwd) {
-      console.log('密码正确，余额支付')
+    if (pwd.length == 6) {
       app.showLoading('')
-      this.setData({
-        showPwd: false
-      })
       this.createOrder()
-    } else if (pwd.length == 6 && this.data.userInfo.memo != pwd) {
-      app.showToast('密码错误，请重试', 'none')
     }
   },
   handleInputClear() {
@@ -350,6 +344,5 @@ Page({
         }
       })
     })
-
   },
 })

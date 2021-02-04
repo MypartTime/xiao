@@ -34,7 +34,7 @@
   box-sizing: border-box;
 }
 .dish-left-nav .active{
-  color: #f90000;
+  color: #c0392b;
   background-color: #fff;
 }
 .dish-container-list{
@@ -68,7 +68,7 @@
 }
 .tags text{
   font-size: 22rpx;
-  color: #f90000;
+  color: #c0392b;
   background-color: #eee;
   padding: 2rpx 10rpx;
 }
@@ -78,7 +78,7 @@
   left: 0;
   font-size: 26rpx;
   font-weight: bold;
-  color: #f90000;
+  color: #c0392b;
 }
 .dish-control{
   position: absolute;
@@ -97,7 +97,7 @@
 .dish_header {
   width: 100vw;
   height: 400rpx;
-  background-color: #f90000;
+  background-color: #c0392b;
   box-sizing: border-box;
   padding: 50rpx 20rpx;
   position: fixed;
@@ -107,7 +107,7 @@
 .small_dish_header {
   width: 100vw;
   height: 200rpx;
-  background-color: #f90000;
+  background-color: #c0392b;
   box-sizing: border-box;
   padding: 50rpx 20rpx;
   position: fixed;
@@ -210,7 +210,7 @@
 }
 .shop-car-item-info view:nth-of-type(3){
   font-size: 22rpx;
-  color: #f90000;
+  color: #c0392b;
   position: absolute;
   bottom: 0;
 }
@@ -223,6 +223,6 @@
   align-items: center;
 }
 .active-button{
-  background-color: #f90000;
+  background-color: #c0392b;
   color: #fff;
 }

@@ -1,4 +1,6 @@
 const app = getApp()
+var md5 = require('md5');
+
 Page({
   data: {
     userInfo: {},
@@ -70,7 +72,7 @@ Page({
           method: "POST",
           data: {
             birthday:new Date(birthday).getTime(),name:customerName,sex,
-            consumePwd:newpwd,
+            consumePwd:md5(newpwd),
             memo:newpwd,
             customerId:wx.getStorageSync('customerId')
           },

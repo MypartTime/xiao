@@ -10,7 +10,7 @@
     border-radius: 40rpx;
     display: block;
     margin: 0 auto;
-    background-color: #f90000;
+    background-color: #c0392b;
     color: #fff;
     font-size: 26rpx;
 }

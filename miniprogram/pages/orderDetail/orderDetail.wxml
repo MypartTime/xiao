@@ -1,0 +1,71 @@
+<view class="order-detail-container">
+  <view class="order-dish-list">
+    <view class="order-detail-dish-item" wx:for="{{orderInfo.dishes}}" wx:key="index">
+      <image src="{{item.dishImgUrl}}" mode="aspectFill"></image>
+      <view class="order-detail-dish-info">
+        <view class="order-detail-dish-name">{{item.name}}</view>
+        <view class="order-detail-dish-num">X{{item.totalNum}}</view>
+        <view class="order-detail-dish-price">￥{{item.totalNum*item.price}}</view>
+      </view>
+    </view>
+    <view class="package-price">
+      <text>包装费:</text>
+      <text>￥0</text>
+      <text>￥{{totalNum}}</text>
+    </view>
+    <view class="send-price">
+      <text>配送费:</text>
+      <text>￥5</text>
+      <text>￥8</text>
+    </view>
+    <view class="order-detail-dish-total-price">
+      总计 ￥{{orderInfo.account}}
+    </view>
+  </view>
+  <view class="order-detail-address">
+      <view class="order-detail-address-title">配送信息</view>
+      <view class="order-detail-address-address">
+        <view>配送地址:</view>
+        <view>
+          <view>{{orderInfo.address.address_name}}</view>
+          <view>{{orderInfo.address.addressDetail}}</view>
+        </view>
+      </view>
+      <view class="order-detail-address-user">
+        <view>收货人信息:</view>
+        <view>
+          <view>{{orderInfo.address.user_name}} {{orderInfo.address.mobile}}</view>
+        </view>
+      </view>
+    </view>
+    <view bindtap="handleCall" class="order-detail-call">
+      <image src="/images/call.png" mode="widthFix"></image>
+      <text>联系商家</text>
+    </view>
+    <view class="order-detail-order-info">
+      <view class="order-detail-order-info-title">订单信息</view>
+      <view class="order-detail-order-info-item">
+        <text>订单号码</text>
+        <text>{{orderInfo.orderId}}</text>
+      </view>
+      <view class="order-detail-order-info-item">
+        <text>下单时间</text>
+        <text>{{orderInfo.create_time}}</text>
+      </view>
+      <view class="order-detail-order-info-item">
+        <text>支付方式</text>
+        <text>{{orderInfo.payment}}</text>
+      </view>
+    </view>
+    <view class="order-detail-order-info">
+      <view class="order-detail-order-info-title">订单状态</view>
+      <view class="order-detail-order-info-item">
+        <text>订单状态</text>
+        <text>{{orderState.status==1?'待确认':orderState.status==2?'已确认':orderState.status==3?'已完成':'已取消'}}</text>
+      </view>
+      <view class="order-detail-order-info-item">
+        <text>配送状态</text>
+        <text>{{orderState.deliveryStatus == 2 ?'待取货':orderState.deliveryStatus == 3?'配送中':orderState.deliveryStatus == 4?'已完成':'已取消'}}</text>
+      </view>
+    </view>
+</view>

@@ -27,5 +27,13 @@ Page({
         }
       }
     })
+  },
+  handleOrderDetail(e){
+    let item = e.currentTarget.dataset.item
+    if(item.isTakeaway){
+      wx.navigateTo({
+        url: '/pages/orderDetail/orderDetail?id='+item._id,
+      })
+    }
   }
 })

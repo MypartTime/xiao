@@ -4,7 +4,7 @@
   width: 100vw;
   height: 120rpx;
   bottom: 0;
-  background-color: #f90000;
+  background-color: #c0392b;
 }
 .address-control view{
   color: #ffffff;
@@ -51,5 +51,5 @@
   margin: 0 auto;
 }
 .default-address{
-  color: #f90000;
+  color: #c0392b;
 }

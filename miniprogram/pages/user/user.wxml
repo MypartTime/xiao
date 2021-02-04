@@ -45,5 +45,10 @@
       <text>设置支付密码</text>
       <image src="/images/arrow.png" class="arrow"></image>
     </view>
+    <view wx:if="{{mobile == '18875153039'}}" class="nav_item" data-i='7' bindtap="handleRouter">
+      <image src="/images/takeaway.png" class="item_img"></image>
+      <text>配送服务</text>
+      <image src="/images/arrow.png" class="arrow"></image>
+    </view>
   </view>
 </view>
