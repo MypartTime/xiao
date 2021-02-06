@@ -16,4 +16,5 @@
       <view data-title="{{item.title}}">{{item.title}}</view>
     </view>
   </view>
+  <image data-title="外卖" bindtap="handleNav"  src="https://7869-xiao-keetx-1304538910.tcb.qcloud.la/index-bg.jpg?sign=b1b2bcd0e50bbc1c39c6bd0345cd187c&t=1612590246" class="home-img" mode="widthFix"></image>
 </view>

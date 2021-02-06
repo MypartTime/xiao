@@ -23,6 +23,7 @@ Page({
           orderId: id
         },
         success(res) {
+          app.hideLoading()
           if (res.data.code == 0) {
             that.setData({
               orderState: res.data.result
@@ -34,6 +35,7 @@ Page({
   },
   getOrderInfo() {
     const that = this
+    app.showLoading('加载中')
     const db = wx.cloud.database()
     db.collection('customer_order').doc(this.data.id).get({
       success: function (res) {
