@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/index/index",
     "pages/user/user",
     "pages/order/order",
     "pages/orderDetail/orderDetail",
-    "pages/index/index",
     "pages/shopCar/shopCar",
     "pages/changePwd/changePwd",
     "pages/address/address",
@@ -25,6 +25,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor":"#de1c31",
     "list": [
       {
         "text": "首页",

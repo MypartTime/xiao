@@ -86,7 +86,7 @@ Page({
           if (data.code == 0) {
             let navList = []
             data.result.forEach(el => {
-              if (el.name == '主菜' || el.name == '小吃') {
+              if (el.name == '主 菜 系 列' || el.name == '辣 味 系 列'||el.name == '五 香 系 列') {
                 navList.push(el)
               }
             });

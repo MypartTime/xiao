@@ -32,6 +32,7 @@
   text-align: center;
   color: #333;
   box-sizing: border-box;
+  letter-spacing: 10rpx;
 }
 .dish-left-nav .active{
   color: #c0392b;

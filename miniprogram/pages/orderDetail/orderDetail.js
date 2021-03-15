@@ -2,13 +2,17 @@ const app = getApp()
 Page({
 
   data: {
-    id: "28ee4e3e601c071702eeaaf47df373ec",
+    id: "",
     orderInfo: {},
     orderState: {},
     totalNum: 0,
   },
   onLoad: function (options) {
-    this.getOrderInfo()
+    this.setData({
+      id:options.id
+    },()=>{
+      this.getOrderInfo()
+    })
   },
   getInfo(id) {
     const that = this

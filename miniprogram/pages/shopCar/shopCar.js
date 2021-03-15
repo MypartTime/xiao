@@ -337,7 +337,7 @@ Page({
       wx.requestPayment({
         ...payment,
         success() {
-          that.handleGoodsOrder(2)
+          that.createOrder()
         },
         fail(res) {
           console.error('pay fail', res)
