@@ -258,7 +258,7 @@ Page({
               showCancel: false,
               success() {
                 wx.navigateBack({
-                  delta: 1,
+                  delta: 2,
                 })
               }
             })
@@ -267,7 +267,7 @@ Page({
               data: {
                 name: that.data.userInfo.customerName,
                 mobile: wx.getStorageSync('mobile'),
-                create_time: new Date().toLocaleString(),
+                create_time: new Date().toLocaleDateString() + new Date().toLocaleTimeString(),
                 account: that.data.totalPrice * 1 + 5 * 1,
                 level: that.data.userInfo.level,
                 payment: that.data.paymethodName,
@@ -314,6 +314,9 @@ Page({
     if (pwd.length == 6) {
       app.showLoading('')
       this.createOrder()
+      this.setData({
+        showPwd:false
+      })
     }
   },
   handleInputClear() {
