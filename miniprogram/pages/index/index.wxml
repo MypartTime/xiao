@@ -1,5 +1,4 @@
 <view class="dish-box-container">
-
   <view class="dish_header">
     <image class="dish_header_title" style="{{'top:' + top+'px'}}" mode="widthFix" src="/images/store.png"></image>
     <view class="dish_header_position">
@@ -20,7 +19,8 @@
   <view class="{{showHeader?'small_dish_header':'small_dish_header hide'}}">
     <image class="dish_header_title" style="{{'top:' + top+'px'}}" mode="widthFix" src="/images/store.png"></image>
   </view>
-  <view class="dish-container">
+  <image src="/images/offline.png" wx:if="{{!isOpen}}" mode="widthFix" class="offline"></image>
+  <view class="dish-container" wx:if="{{isOpen}}">
     <view class="dish-left-nav">
       <view class="{{active == index ? 'dish-left-nav-item active' : 'dish-left-nav-item'}}" wx:for="{{navList}}"
         wx:key="index" bindtap="handleNav" data-i="{{index}}">
@@ -37,7 +37,8 @@
               wx:if="{{item.dishPropertyTypeInfos[0].properties[0].name}}">{{item.dishPropertyTypeInfos[0].properties[0].name}}</text>
           </view>
           <view class="dish-price">￥{{item.marketPrice}}</view>
-          <view class="dish-control">
+          <view class="sale-all-tips" wx:if="{{item.clearStatus==2}}">已售完</view>
+          <view class="dish-control" wx:if="{{item.clearStatus==1}}">
             <!-- 减去 -->
             <image wx:if="{{item.totalNum}}" src="/images/minus.png" mode="widthFix" class="dish-list-add" data-i='-1'
               data-index="{{index}}" data-item='{{item}}' bindtap="handleCarDish"></image>
@@ -49,9 +50,11 @@
         </view>
       </view>
     </view>
+    
+ 
   </view>
 </view>
-<view class="shop-car">
+<view class="shop-car" wx:if="{{isOpen}}">
   <view>
     <van-icon bindtap="handleShowShopCar"
       name="{{shopCarDishList.data.length!=0?'/images/goods.png':'/images/nogoods.png'}}" class="shop-car-pic"

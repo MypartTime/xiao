@@ -1,63 +1,67 @@
 {
-  "pages": [
-    "pages/home/home",
-    "pages/index/index",
-    "pages/user/user",
-    "pages/order/order",
-    "pages/orderDetail/orderDetail",
-    "pages/shopCar/shopCar",
-    "pages/changePwd/changePwd",
-    "pages/address/address",
-    "pages/pay/pay",
-    "pages/addAddress/addAddress",
-    "pages/recharge/recharge",
-    "pages/login/login",
-    "pages/record/record",
-    "pages/ticket/ticket",
-    "pages/purse/purse",
-    "pages/userinfo/userinfo"
-  ],
-  "window": {
-    "backgroundColor": "#fff",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "肖新星卤坊",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "selectedColor":"#de1c31",
-    "list": [
-      {
-        "text": "首页",
-        "pagePath": "pages/home/home",
-        "iconPath": "/images/tabs/home.png",
-        "selectedIconPath": "images/tabs/home-active.png"
-      },
-      {
-        "text": "买单",
-        "pagePath": "pages/pay/pay",
-        "iconPath": "/images/tabs/pay.png",
-        "selectedIconPath": "images/tabs/pay-active.png"
-      },
-      {
-        "text": "订单",
-        "pagePath": "pages/order/order",
-        "iconPath": "/images/tabs/orders.png",
-        "selectedIconPath": "images/tabs/orders-active.png"
-      },
-      {
-        "text": "我的",
-        "pagePath": "pages/user/user",
-        "iconPath": "/images/tabs/avatar.png",
-        "selectedIconPath": "images/tabs/avatar-active.png"
-      }
-    ]
-  },
-  "sitemapLocation": "sitemap.json",
-  "usingComponents": {
-    "van-popup": "@vant/weapp/popup/index",
-    "van-icon": "@vant/weapp/icon/index",
-    "van-action-sheet": "@vant/weapp/action-sheet/index",
-    "van-overlay": "@vant/weapp/overlay/index"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/shopCar/shopCar",
+        "pages/home/home",
+        "pages/addAddress/addAddress",
+        "pages/address/address",
+        "pages/user/user",
+        "pages/order/order",
+        "pages/orderDetail/orderDetail",
+        "pages/changePwd/changePwd",
+        "pages/pay/pay",
+        "pages/recharge/recharge",
+        "pages/login/login",
+        "pages/record/record",
+        "pages/ticket/ticket",
+        "pages/purse/purse",
+        "pages/userinfo/userinfo"
+    ],
+    "window": {
+        "backgroundColor": "#fff",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "肖新星卤坊",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "selectedColor": "#de1c31",
+        "list": [{
+                "text": "首页",
+                "pagePath": "pages/home/home",
+                "iconPath": "/images/tabs/home.png",
+                "selectedIconPath": "images/tabs/home-active.png"
+            },
+            {
+                "text": "买单",
+                "pagePath": "pages/pay/pay",
+                "iconPath": "/images/tabs/pay.png",
+                "selectedIconPath": "images/tabs/pay-active.png"
+            },
+            {
+                "text": "订单",
+                "pagePath": "pages/order/order",
+                "iconPath": "/images/tabs/orders.png",
+                "selectedIconPath": "images/tabs/orders-active.png"
+            },
+            {
+                "text": "我的",
+                "pagePath": "pages/user/user",
+                "iconPath": "/images/tabs/avatar.png",
+                "selectedIconPath": "images/tabs/avatar-active.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "van-popup": "@vant/weapp/popup/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-action-sheet": "@vant/weapp/action-sheet/index",
+        "van-overlay": "@vant/weapp/overlay/index"
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于收货地址的定位"
+        }
+    }
 }

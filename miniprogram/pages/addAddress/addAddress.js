@@ -10,7 +10,7 @@ Page({
     addressDetail: '',
     addLatitude: '',
     addLongitude: '',
-    distance:'',//距离
+    distance: '', //距离
     id: '',
     type: ''
   },
@@ -45,30 +45,51 @@ Page({
   },
   chooseAddress() {
     const that = this
-    wx.chooseLocation({
+    wx.getSetting({
       success(res) {
-        if (res.address && res.name) {
-          let s = (app.getDistance(that.data.Latitude, that.data.longitude, res.latitude, res.longitude)).toFixed(2)
-          console.log(s)
-          if (s > 2) {
-            wx.showModal({
-              title: '提示',
-              content: '该距离超出配送范围，请重新选择',
-              showCancel: false
-            })
-          } else {
-            that.setData({
-              addressName: res.name,
-              addressDetail: res.address,
-              addLatitude: res.latitude,
-              addLongitude: res.longitude,
-              distancee:s
-            })
-          }
+        console.log(res.authSetting["scope.userLocation"])
+        if (res.authSetting["scope.userLocation"] == false) {
+          wx.showModal({
+            content:'请先授权位置信息',
+            success(c){
+              if(c.confirm){
+                wx.openSetting({
+                  withSubscriptions: true,
+                })
+              }
+            }
+          })
+        }else {
+          wx.chooseLocation({
+            success(res) {
+              if (res.address && res.name) {
+                let s = (app.getDistance(that.data.Latitude, that.data.longitude, res.latitude, res.longitude)).toFixed(2)
+                console.log(s)
+                if (s > 2) {
+                  wx.showModal({
+                    title: '提示',
+                    content: '该距离超出配送范围，请重新选择',
+                    showCancel: false
+                  })
+                } else {
+                  that.setData({
+                    addressName: res.name,
+                    addressDetail: res.address,
+                    addLatitude: res.latitude,
+                    addLongitude: res.longitude,
+                    distancee: s
+                  })
+                }
+              }
+  
+            }
+          })
+
         }
 
       }
     })
+    // return
   },
   handleAddAddress(e) {
     let {
@@ -108,7 +129,7 @@ Page({
           mobile: tel,
           latitude: this.data.addLatitude,
           longitude: this.data.addLongitude,
-          distance:this.data.distance,
+          distance: this.data.distance,
           isdefault: false
         }
       }).then(res => {

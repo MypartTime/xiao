@@ -48,12 +48,13 @@
         <text>配送费</text>
         <view>
           <text>￥8</text>
-          <text>￥5</text>
+          <text wx:if="{{totalPrice < 78}}">￥5</text>
+          <text wx:if="{{totalPrice >= 78}}">￥0(满78免配送费)</text>
         </view>
       </view>
     </view>
     <!-- 总价格 -->
-    <view class="shop-car-dish-total-price">￥{{totalPrice * 1 + 5 * 1}}</view>
+    <view class="shop-car-dish-total-price">￥{{totalPrice * 1 + (totalPrice <78?5:0)}}</view>
   </view>
 </view>
 
@@ -70,7 +71,7 @@
     <view class="shop-car-pwd-container">
       <image src="/images/multiply.png" class="shop-car-pwd-close" bindtap="closePwd" mode="widthFix"></image>
       <view class="shop-car-pwd-title">请输入支付密码</view>
-      <view class="shop-car-pwd-price">￥{{totalPrice * 1 + 5 * 1}}</view>
+      <view class="shop-car-pwd-price">￥{{totalPrice * 1 + (totalPrice <78?5:0)}}</view>
       <input  type="number" focus="{{isFocus}}"  password="{{true}}" maxlength="6" value="{{pwd}}" bindinput="inputPwd" bindfocus="handleInputClear"  />
     </view>
   </van-overlay>
