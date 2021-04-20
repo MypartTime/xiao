@@ -1,0 +1,9 @@
+<view class="coins-container">
+  <view class="coins-header">
+    <view class="coins-title">我的积分</view>
+    <van-circle  value="{{ value }}" stroke-width="10" text="{{content}}" />
+  </view>
+  <view class="exchange-container">
+    暂无兑换礼品
+  </view>
+</view>

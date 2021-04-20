@@ -12,7 +12,7 @@ Page({
         shopCarDishList: {}, //购物车里的商品
         showShopCar: false, //是否显示购物车
         tapClose: true,
-        isOpen:false
+        isOpen: false
     },
     onLoad() {
         this.getDishCategory()
@@ -49,14 +49,14 @@ Page({
     getStoreTime() {
         let time = new Date().getHours()
         console.log(time)
-        if(time >= 22 || time < 8){
-          this.setData({
-            isOpen:false
-          })
-        }else{
-          this.setData({
-            isOpen:true
-          })
+        if (time >= 22 || time < 8) {
+            this.setData({
+                isOpen: false
+            })
+        } else {
+            this.setData({
+                isOpen: true
+            })
         }
     },
     //获取菜单

@@ -1,11 +1,12 @@
 {
     "pages": [
-        "pages/index/index",
-        "pages/shopCar/shopCar",
         "pages/home/home",
+        "pages/integral/integral",
+        "pages/index/index",
+        "pages/user/user",
+        "pages/shopCar/shopCar",
         "pages/addAddress/addAddress",
         "pages/address/address",
-        "pages/user/user",
         "pages/order/order",
         "pages/orderDetail/orderDetail",
         "pages/changePwd/changePwd",
@@ -57,7 +58,8 @@
         "van-popup": "@vant/weapp/popup/index",
         "van-icon": "@vant/weapp/icon/index",
         "van-action-sheet": "@vant/weapp/action-sheet/index",
-        "van-overlay": "@vant/weapp/overlay/index"
+        "van-overlay": "@vant/weapp/overlay/index",
+        "van-circle": "@vant/weapp/circle/index"
     },
     "permission": {
         "scope.userLocation": {

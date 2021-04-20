@@ -30,11 +30,11 @@
       <text>我的地址</text>
       <image src="/images/arrow.png" class="arrow"></image>
     </view>
-    <!-- <view class="nav_item" data-i='3' bindtap="handleRouter">
-      <image src="/images/ticket.png" class="item_img"></image>
-      <text>我的优惠券</text>
+    <view class="nav_item" data-i='7' bindtap="handleRouter">
+      <image src="/images/coins.png" class="item_img"></image>
+      <text>我的积分</text>
       <image src="/images/arrow.png" class="arrow"></image>
-    </view> -->
+    </view>
     <view class="nav_item" data-i='4' bindtap="handleRouter">
       <image src="/images/rmb.png" class="item_img"></image>
       <text>在线充值</text>

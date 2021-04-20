@@ -1,0 +1,19 @@
+.coins-header {
+  height: 400rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+  border-bottom: 10px solid #ddd;
+}
+.coins-title {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+.exchange-container{
+  padding-top: 100rpx;
+  text-align: center;
+  color: #aaa;
+}
