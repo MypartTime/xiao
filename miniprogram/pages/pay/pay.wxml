@@ -1,4 +1,4 @@
-<view class="pay_container" wx:if="{{show}}">
+<view class="pay_container" >
   <input type="digit" bindinput="handleInput" placeholder="请输入买单金额" class="pay-input" />
   <view class="pay_notice">付款前请先与商家确认买单金额</view>
 
@@ -6,16 +6,16 @@
     <view>待支付</view>
     <view>{{account}}元</view>
   </view>
-  <view class="pay_controls">
+  <view class="pay_controls" wx:if="{{show}}">
     <button type="primary" bindtap="handlePay">支付</button>
   </view>
-  <view class="pay_tips" wx:if="{{!level}}">
+  <view class="pay_tips" wx:if="{{!level&&show}}">
     成为会员，享受会员折扣，点击立即<navigator url="/pages/recharge/recharge"><text class="pay_tips_a">开通会员</text>
     </navigator>
   </view>
 </view>
 <image src="/images/404.png" wx:if="{{showLog}}" class="notfound" mode="aspectFit"></image>
-<view class="pay_login_btn" wx:if="{{showLog}}">
+<view class="pay_login_btn" wx:if="{{!show}}">
   <navigator url="/pages/login/login">
     <button type="primary">请先登录</button>
   </navigator>

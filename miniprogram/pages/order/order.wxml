@@ -1,4 +1,4 @@
-<view class="order_container">
+<view class="order_container" wx:if="{{show}}">
   <view class="order_container_item" data-item="{{item}}" bindtap="handleOrderDetail" wx:for="{{list}}" wx:key="index">
     <view data-item="{{item}}" class="order_container_item_time">订单号：{{item.tradeId}}</view>
     <view data-item="{{item}}" class="order_container_item_time">消费时间：{{item.create_time}}</view>
@@ -9,6 +9,14 @@
     <view data-item="{{item}}" class="order-arrow" wx:if="{{item.isTakeaway}}" >查看详情</view>
   </view>
 </view>
-<image src="/images/404.png" wx:if="{{list.length == 0}}" class="notfound" mode="aspectFit"></image>
-
-<image src="/images/404.png" wx:if="{{list.length != 0}}" class="notfound1" mode="widthFix"></image>
+<view class="order-tip" wx:if="{{list.length==totalNum}}">暂无更多</view>
+<van-empty
+  wx:if="{{!show}}"
+  class="custom-image"
+  image="https://iconfont.alicdn.com/t/e2d7422a-4288-4570-8480-8e993406d1ac.png"
+  description="请先登录"
+/>
+<view wx:if="{{!show}}" class="order-login-container">
+  <navigator url="/pages/login/login">
+  <van-button color="#c0392b" type="primary" round plain>登录后查看订单</van-button></navigator>
+</view>

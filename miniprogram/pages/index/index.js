@@ -12,14 +12,18 @@ Page({
         shopCarDishList: {}, //购物车里的商品
         showShopCar: false, //是否显示购物车
         tapClose: true,
-        isOpen: false
+        isOpen: false,
+        mobile: wx.getStorageSync('mobile')
     },
-    onLoad() {
+    onShow() {
         this.getDishCategory()
         this.getStoreTime()
         let position = wx.getMenuButtonBoundingClientRect()
         this.setData({
             top: position.top
+        })
+        this.setData({
+            mobile: wx.getStorageSync('mobile')
         })
     },
     handleNav(e) {
@@ -164,6 +168,10 @@ Page({
         let shopcarlist = this.data.shopCarDishList
         let dishList = this.data.dishList
         const db = wx.cloud.database()
+        if (!wx.getStorageSync('mobile')) {
+            app.showToast('请先登录', 'error')
+            return
+        }
         if (i == 1) {
             if (!shopcarlist.data) {
                 let list = [{
@@ -293,4 +301,7 @@ Page({
             app.navigator('/pages/shopCar/shopCar')
         }
     },
+    handleLog() {
+        app.navigator('/pages/login/login')
+    }
 })

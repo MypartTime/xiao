@@ -64,7 +64,8 @@
       <view>另需配送费￥5</view>
     </view>
   </view>
-  <button class="{{totalPrice > 38 ?'active-button pay-button':'pay-button'}}" bindtap="handleSettle">{{totalPrice < 38?'38元起送':'去结算'}}</button>
+  <button wx:if="{{mobile}}" class="{{totalPrice > 38 ?'active-button pay-button':'pay-button'}}" bindtap="handleSettle">{{totalPrice < 38?'38元起送':'去结算'}}</button>
+  <button wx:if="{{!mobile}}" bindtap="handleLog" class="active-button pay-button" >点击登录</button>
 </view>
 <van-popup show="{{ showShopCar }}" position="bottom"
   custom-style="min-height:500rpx;max-height:800rpx" close-on-click-overlay="{{tapClose}}"
