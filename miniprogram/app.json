@@ -1,8 +1,8 @@
 {
     "pages": [
+        "pages/home/home",
         "pages/order/order",
         "pages/pay/pay",
-        "pages/home/home",
         "pages/index/index",
         "pages/integral/integral",
         "pages/user/user",
@@ -12,7 +12,6 @@
         "pages/orderDetail/orderDetail",
         "pages/changePwd/changePwd",
         "pages/recharge/recharge",
-        "pages/login/login",
         "pages/record/record",
         "pages/ticket/ticket",
         "pages/purse/purse",

@@ -129,6 +129,11 @@ Page({
       })
     })
   },
+  handleCancel(){
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
   onLoad() {
 
 

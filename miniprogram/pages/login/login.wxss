@@ -5,12 +5,23 @@
 }
 .login{
     width: 300rpx;
-    line-height: 60rpx;
+    line-height:100rpx;
     text-align: center;
-    border-radius: 40rpx;
+    border-radius: 100rpx;
     display: block;
     margin: 0 auto;
     background-color: #c0392b;
     color: #fff;
     font-size: 26rpx;
+}
+.cancel-login{
+    width: 200rpx;
+    position: fixed;
+    font-size: 24rpx;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    bottom: 50rpx;
+    color: #aaaaaa;
 }
