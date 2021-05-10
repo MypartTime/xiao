@@ -1,6 +1,6 @@
 <div>
     <image class="logo" src="/images/logo.png" mode="widthFix"  />
-    <button open-type="getUserInfo"  wx:if="{{active == 1}}" class="login" bindgetuserinfo="getUserInfo" >授权登录</button>
+    <button open-type="getUserInfo"  wx:if="{{active == 1}}" class="login" bindtap="getuserInfo" >授权登录</button>
     <button open-type="getPhoneNumber"  wx:if="{{active == 2}}"  class="login" bindgetphonenumber="getPhoneNumber" >获取号码</button>
     <view class="cancel-login" bindtap="handleCancel">暂不登录</view>
 </div>

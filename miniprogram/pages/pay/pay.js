@@ -85,16 +85,12 @@ Page({
     inputPwd(e) {
         let pwd = e.detail.value
         console.log(pwd)
-        if (pwd.length == 6 && pwd != this.data.userInfo.memo) {
-            app.showToast('密码错误,请重试', 'none')
-        } else if (pwd.length == 6 && pwd == this.data.userInfo.memo) {
-            console.log('支付成功')
-            console.log('调用接口扣除储值金额及生成订单')
-            app.showLoading('支付中')
+        if (pwd.length == 6) {
             this.setData({
                 showPwd: false
+            }, () => {
+                this.handleGoodsOrder(1)
             })
-            this.handleGoodsOrder(1)
         }
     },
     //唤起支付
@@ -167,15 +163,18 @@ Page({
         })
     },
     handleGoodsOrder(type) {
+        wx.showLoading({
+            title: '支付中',
+        })
         const that = this
         let data = {}
-        let account = (this.data.account * 100).toFixed(0)
+        let account = (this.data.account * 100).toFixed(0) * 1
             //会员余额支付
         if (type == 1) {
             data = {
                 tpOrderId: 'XIAO' + Date.parse(new Date()) / 1000 + parseInt((Math.random() * 9) + 1), //订单号
-                createTime: new Date().toLocaleString(), //创建时间
-                updateTime: new Date().toLocaleString(), //更新时间
+                createTime: new Date().getTime(), //创建时间
+                updateTime: new Date().getTime(), //更新时间
                 shopIdenty: app.shopIdenty, //店铺id
                 shopName: app.shopName, //店铺名
                 peopleCount: 1, //就餐人数
@@ -246,6 +245,7 @@ Page({
                 method: "POST",
                 data,
                 success(result) {
+
                     app.hideLoading()
                     console.log(result)
                     if (result.data.code == 0) {
